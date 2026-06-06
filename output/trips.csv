@@ -1,23 +1,23 @@
 cluster_id,start_date,end_date,days,city,country,state,place_label,sub_destinations,journey_id
-20,2026-01-01,2026-01-19,19,Marechal Deodoro,BR,,"Marechal Deodoro, Alagoas, BR",Marechal Deodoro / Maceio,1
-53,2026-02-13,2026-02-14,2,Jefferson,US,,"Jefferson, Louisiana, US",Jefferson,2
-57,2026-02-15,2026-02-15,1,Dixiana,US,,"Dixiana, Alabama, US",Dixiana,2
-69,2026-02-28,2026-02-28,1,Bloomfield,US,,"Bloomfield, Pennsylvania, US",Bloomfield,3
-86,2026-03-01,2026-03-01,1,Saint Pete Beach,US,,"Saint Pete Beach, Florida, US",Saint Pete Beach,3
-90,2026-03-02,2026-03-07,6,San Juan,PR,,"San Juan, San Juan, PR",San Juan / Palmer / Fajardo,3
-132,2026-03-14,2026-03-14,1,East Ithaca,US,,"East Ithaca, New York, US",East Ithaca,4
-140,2026-03-26,2026-03-29,4,Foxborough,US,,"Foxborough, Massachusetts, US",Foxborough / Cambridge,5
-151,2026-03-30,2026-03-30,1,Philadelphia,US,,"Philadelphia, Pennsylvania, US",Philadelphia,5
-69,2026-04-04,2026-04-04,1,Bloomfield,US,,"Bloomfield, Pennsylvania, US",Bloomfield,6
-132,2026-04-24,2026-04-24,1,East Ithaca,US,,"East Ithaca, New York, US",East Ithaca,7
-169,2026-04-25,2026-04-25,1,New Haven,US,,"New Haven, Connecticut, US",New Haven,7
-173,2026-04-26,2026-04-26,1,New York City,US,,"New York City, New York, US",New York City,7
-188,2026-05-16,2026-05-17,2,Manhattan,US,,"Manhattan, New York, US",Manhattan,8
-214,2026-05-20,2026-05-25,6,Pupukea,US,,"Pupukea, Hawaii, US",Pupukea / Waimanalo Beach / Honolulu,8
-275,2026-05-26,2026-05-26,1,Marina del Rey,US,,"Marina del Rey, California, US",Marina del Rey,8
-295,2026-05-27,2026-05-27,1,Coronado,US,,"Coronado, California, US",Coronado,8
-302,2026-05-28,2026-05-28,1,Port Hueneme,US,,"Port Hueneme, California, US",Port Hueneme,8
-313,2026-05-29,2026-05-29,1,Gustine,US,,"Gustine, California, US",Gustine,8
-315,2026-05-30,2026-05-31,2,Huntington Beach,US,,"Huntington Beach, California, US",Huntington Beach / Hollywood,8
-332,2026-06-01,2026-06-01,1,Aldine,US,,"Aldine, Texas, US",Aldine,8
-333,2026-06-02,2026-06-04,3,Guarulhos,BR,,"Guarulhos, Sao Paulo, BR",Guarulhos / Sao Paulo,8
+20,2026-01-01,2026-01-19,19,Maceio,BR,,"Maceio, BR",Marechal Deodoro / Maceio,1
+53,2026-02-13,2026-02-14,2,Jefferson,US,,"Jefferson, US",Jefferson,2
+57,2026-02-15,2026-02-15,1,Dixiana,US,,"Dixiana, US",Dixiana,2
+69,2026-02-28,2026-02-28,1,Bloomfield,US,,"Bloomfield, US",Bloomfield,3
+86,2026-03-01,2026-03-01,1,Saint Pete Beach,US,,"Saint Pete Beach, US",Saint Pete Beach,3
+90,2026-03-02,2026-03-07,6,San Juan,PR,,"San Juan, PR",San Juan / Palmer / Fajardo,3
+132,2026-03-14,2026-03-14,1,East Ithaca,US,,"East Ithaca, US",East Ithaca,4
+140,2026-03-26,2026-03-29,4,Cambridge,US,,"Cambridge, US",Foxborough / Cambridge,5
+151,2026-03-30,2026-03-30,1,Philadelphia,US,,"Philadelphia, US",Philadelphia,5
+69,2026-04-04,2026-04-04,1,Bloomfield,US,,"Bloomfield, US",Bloomfield,6
+132,2026-04-24,2026-04-24,1,East Ithaca,US,,"East Ithaca, US",East Ithaca,7
+169,2026-04-25,2026-04-25,1,New Haven,US,,"New Haven, US",New Haven,7
+173,2026-04-26,2026-04-26,1,New York City,US,,"New York City, US",New York City,7
+188,2026-05-16,2026-05-17,2,Manhattan,US,,"Manhattan, US",Manhattan,8
+214,2026-05-20,2026-05-25,6,Waimanalo Beach,US,,"Waimanalo Beach, US",Pupukea / Waimanalo Beach / Honolulu,8
+275,2026-05-26,2026-05-26,1,Marina del Rey,US,,"Marina del Rey, US",Marina del Rey,8
+295,2026-05-27,2026-05-27,1,Coronado,US,,"Coronado, US",Coronado,8
+302,2026-05-28,2026-05-28,1,Port Hueneme,US,,"Port Hueneme, US",Port Hueneme,8
+313,2026-05-29,2026-05-29,1,Gustine,US,,"Gustine, US",Gustine,8
+315,2026-05-30,2026-05-31,2,Hollywood,US,,"Hollywood, US",Huntington Beach / Hollywood,8
+332,2026-06-01,2026-06-01,1,Aldine,US,,"Aldine, US",Aldine,8
+333,2026-06-02,2026-06-04,3,Sao Paulo,BR,,"Sao Paulo, BR",Guarulhos / Sao Paulo,8

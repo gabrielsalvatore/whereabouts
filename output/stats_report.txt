@@ -21,14 +21,14 @@
   Manhattan, New York, US                       187 photos  (2026-05-16 → 2026-05-17)
 
 ── JOURNEYS (8) ──────────────────────────────────────────────
-  2026-01-01 → 2026-01-19  (19d, 1 stop)  Marechal Deodoro
+  2026-01-01 → 2026-01-19  (19d, 1 stop)  Maceio
   2026-02-13 → 2026-02-15  (3d, 2 stops)  Jefferson / Dixiana
   2026-02-28 → 2026-03-07  (8d, 3 stops)  Bloomfield / Saint Pete Beach / San Juan
   2026-03-14 → 2026-03-14  (1d, 1 stop)  East Ithaca
-  2026-03-26 → 2026-03-30  (5d, 2 stops)  Foxborough / Philadelphia
+  2026-03-26 → 2026-03-30  (5d, 2 stops)  Cambridge / Philadelphia
   2026-04-04 → 2026-04-04  (1d, 1 stop)  Bloomfield
   2026-04-24 → 2026-04-26  (3d, 3 stops)  East Ithaca / New Haven / New York City
-  2026-05-16 → 2026-06-04  (20d, 9 stops)  Manhattan / Pupukea / Marina del Rey / Coronado / Port Hueneme / Gustine …
+  2026-05-16 → 2026-06-04  (20d, 9 stops)  Manhattan / Waimanalo Beach / Marina del Rey / Coronado / Port Hueneme / Gustine …
 
 ── MONTHLY SUMMARY ───────────────────────────────────────────
   January 2026    Maceio, BR  (329 photos)

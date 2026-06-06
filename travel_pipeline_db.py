@@ -613,6 +613,27 @@ def detect_trips(df: pd.DataFrame, home_cluster_id: int,
     if clusters_df is not None and len(raw_trips) > 1:
         raw_trips = merge_nearby_trips(raw_trips, clusters_df)
 
+    # Re-evaluate city name per trip using most-photographed city in that date range.
+    # Fixes cases like "Pupukea" showing instead of "Honolulu" because one day at
+    # the beach dominated the daily cluster count.
+    non_home = df[~df["cluster_id"].isin(skip_ids)].copy()
+    for t in raw_trips:
+        mask = (non_home["local_date"] >= t["start_date"]) & \
+               (non_home["local_date"] <= t["end_date"])
+        period = non_home[mask]
+        if period.empty:
+            continue
+        grp_cols = ["city", "country"] + (["admin1"] if "admin1" in period.columns else [])
+        top = period.groupby(grp_cols).size().idxmax()
+        if isinstance(top, tuple):
+            t["city"], t["country"] = top[0], top[1]
+            t["state"] = top[2] if len(top) > 2 else t.get("state", "")
+        else:
+            t["city"] = top
+        adm = t.get("state", "")
+        t["place_label"] = (f"{t['city']}, {adm}, {t['country']}" if adm
+                            else f"{t['city']}, {t['country']}")
+
     trips_df = pd.DataFrame(raw_trips)
     # Stringify sub_destinations list
     if "sub_destinations" in trips_df.columns:

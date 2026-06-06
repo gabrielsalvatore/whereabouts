@@ -1,9 +1,9 @@
 journey_id,start_date,end_date,days,n_stops,countries,cities,primary_city,primary_country
-1,2026-01-01,2026-01-19,19,1,BR,Marechal Deodoro,Marechal Deodoro,BR
+1,2026-01-01,2026-01-19,19,1,BR,Maceio,Maceio,BR
 2,2026-02-13,2026-02-15,3,2,US,Jefferson / Dixiana,Jefferson,US
 3,2026-02-28,2026-03-07,8,3,US / PR,Bloomfield / Saint Pete Beach / San Juan,San Juan,PR
 4,2026-03-14,2026-03-14,1,1,US,East Ithaca,East Ithaca,US
-5,2026-03-26,2026-03-30,5,2,US,Foxborough / Philadelphia,Foxborough,US
+5,2026-03-26,2026-03-30,5,2,US,Cambridge / Philadelphia,Cambridge,US
 6,2026-04-04,2026-04-04,1,1,US,Bloomfield,Bloomfield,US
 7,2026-04-24,2026-04-26,3,3,US,East Ithaca / New Haven / New York City,East Ithaca,US
-8,2026-05-16,2026-06-04,20,9,US / BR,Manhattan / Pupukea / Marina del Rey / Coronado / Port Hueneme / Gustine …,Pupukea,US
+8,2026-05-16,2026-06-04,20,9,US / BR,Manhattan / Waimanalo Beach / Marina del Rey / Coronado / Port Hueneme / Gustine …,Waimanalo Beach,US
