@@ -1,0 +1,41 @@
+==============================================================
+  TRAVEL STATISTICS
+==============================================================
+
+  Photos/videos with GPS : 8,206
+  Days with photos       : 152
+  Countries visited      : 3  (BR, PR, US)
+  Unique cities          : 121
+  Estimated distance     : 46,352 km  /  28,802 mi
+
+── TOP 10 LOCATIONS ──────────────────────────────────────────
+  Meadville, Pennsylvania, US                  1118 photos  (2026-01-20 → 2026-05-19)
+  Honolulu, Hawaii, US                          927 photos  (2026-05-18 → 2026-05-25)
+  Waimanalo Beach, Hawaii, US                   762 photos  (2026-05-21 → 2026-05-25)
+  San Juan, San Juan, PR                        612 photos  (2026-03-02 → 2026-03-07)
+  Maceio, Alagoas, BR                           329 photos  (2026-01-01 → 2026-01-19)
+  Fajardo, Fajardo, PR                          319 photos  (2026-03-05 → 2026-03-05)
+  Marechal Deodoro, Alagoas, BR                 298 photos  (2026-01-01 → 2026-01-18)
+  Palmer, Rio Grande, PR                        215 photos  (2026-03-04 → 2026-03-04)
+  New Haven, Connecticut, US                    206 photos  (2026-03-30 → 2026-04-26)
+  Manhattan, New York, US                       187 photos  (2026-05-16 → 2026-05-17)
+
+── JOURNEYS (8) ──────────────────────────────────────────────
+  2026-01-01 → 2026-01-19  (19d, 1 stop)  Marechal Deodoro
+  2026-02-13 → 2026-02-15  (3d, 2 stops)  Jefferson / Dixiana
+  2026-02-28 → 2026-03-07  (8d, 3 stops)  Bloomfield / Saint Pete Beach / San Juan
+  2026-03-14 → 2026-03-14  (1d, 1 stop)  East Ithaca
+  2026-03-26 → 2026-03-30  (5d, 2 stops)  Foxborough / Philadelphia
+  2026-04-04 → 2026-04-04  (1d, 1 stop)  Bloomfield
+  2026-04-24 → 2026-04-26  (3d, 3 stops)  East Ithaca / New Haven / New York City
+  2026-05-16 → 2026-06-04  (20d, 9 stops)  Manhattan / Pupukea / Marina del Rey / Coronado / Port Hueneme / Gustine …
+
+── MONTHLY SUMMARY ───────────────────────────────────────────
+  January 2026    Maceio, BR  (329 photos)
+  February 2026   Meadville, US  (224 photos)
+  March 2026      San Juan, PR  (612 photos)
+  April 2026      Meadville, US  (284 photos)
+  May 2026        Honolulu, US  (927 photos)
+  June 2026       Sao Paulo, BR  (23 photos)
+
+==============================================================

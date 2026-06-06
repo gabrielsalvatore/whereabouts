@@ -1,0 +1,3793 @@
+{
+  "year": 2026,
+  "home": "Meadville, Pennsylvania, US",
+  "summary": {
+    "total_gps_photos": 8206,
+    "countries_visited": [
+      "BR",
+      "PR",
+      "US"
+    ],
+    "unique_places": 335,
+    "trips_detected": 90,
+    "estimated_km": 46352,
+    "estimated_miles": 28802
+  },
+  "monthly_timeline": [
+    {
+      "month": "January 2026",
+      "city": "Maceio",
+      "country": "BR",
+      "photos": 329
+    },
+    {
+      "month": "February 2026",
+      "city": "Meadville",
+      "country": "US",
+      "photos": 224
+    },
+    {
+      "month": "March 2026",
+      "city": "San Juan",
+      "country": "PR",
+      "photos": 612
+    },
+    {
+      "month": "April 2026",
+      "city": "Meadville",
+      "country": "US",
+      "photos": 284
+    },
+    {
+      "month": "May 2026",
+      "city": "Honolulu",
+      "country": "US",
+      "photos": 927
+    },
+    {
+      "month": "June 2026",
+      "city": "Sao Paulo",
+      "country": "BR",
+      "photos": 23
+    }
+  ],
+  "trips": [
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-01",
+      "end": "2026-01-01",
+      "days": 1
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-02",
+      "end": "2026-01-02",
+      "days": 1
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-03",
+      "end": "2026-01-03",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-04",
+      "end": "2026-01-06",
+      "days": 3
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-07",
+      "end": "2026-01-07",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-08",
+      "end": "2026-01-08",
+      "days": 1
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-09",
+      "end": "2026-01-09",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-10",
+      "end": "2026-01-10",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-11",
+      "end": "2026-01-11",
+      "days": 1
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-12",
+      "end": "2026-01-12",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-13",
+      "end": "2026-01-13",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-14",
+      "end": "2026-01-16",
+      "days": 3
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-17",
+      "end": "2026-01-17",
+      "days": 1
+    },
+    {
+      "destination": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "country": "BR",
+      "start": "2026-01-18",
+      "end": "2026-01-18",
+      "days": 1
+    },
+    {
+      "destination": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "country": "BR",
+      "start": "2026-01-19",
+      "end": "2026-01-19",
+      "days": 1
+    },
+    {
+      "destination": "Hapeville, Georgia, US",
+      "city": "Hapeville",
+      "country": "US",
+      "start": "2026-01-20",
+      "end": "2026-01-20",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-01-21",
+      "end": "2026-01-23",
+      "days": 3
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-01-25",
+      "end": "2026-02-11",
+      "days": 18
+    },
+    {
+      "destination": "Scottsville, Kentucky, US",
+      "city": "Scottsville",
+      "country": "US",
+      "start": "2026-02-12",
+      "end": "2026-02-12",
+      "days": 1
+    },
+    {
+      "destination": "Livingston, Alabama, US",
+      "city": "Livingston",
+      "country": "US",
+      "start": "2026-02-13",
+      "end": "2026-02-13",
+      "days": 1
+    },
+    {
+      "destination": "Arabi, Louisiana, US",
+      "city": "Arabi",
+      "country": "US",
+      "start": "2026-02-14",
+      "end": "2026-02-14",
+      "days": 1
+    },
+    {
+      "destination": "Dixiana, Alabama, US",
+      "city": "Dixiana",
+      "country": "US",
+      "start": "2026-02-15",
+      "end": "2026-02-15",
+      "days": 1
+    },
+    {
+      "destination": "Jamestown, Ohio, US",
+      "city": "Jamestown",
+      "country": "US",
+      "start": "2026-02-16",
+      "end": "2026-02-16",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-02-17",
+      "end": "2026-02-23",
+      "days": 7
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-02-24",
+      "end": "2026-02-24",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-02-25",
+      "end": "2026-02-27",
+      "days": 3
+    },
+    {
+      "destination": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "country": "US",
+      "start": "2026-02-28",
+      "end": "2026-02-28",
+      "days": 1
+    },
+    {
+      "destination": "Saint Pete Beach, Florida, US",
+      "city": "Saint Pete Beach",
+      "country": "US",
+      "start": "2026-03-01",
+      "end": "2026-03-01",
+      "days": 1
+    },
+    {
+      "destination": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "country": "PR",
+      "start": "2026-03-02",
+      "end": "2026-03-02",
+      "days": 1
+    },
+    {
+      "destination": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "country": "PR",
+      "start": "2026-03-03",
+      "end": "2026-03-03",
+      "days": 1
+    },
+    {
+      "destination": "Palmer, Rio Grande, PR",
+      "city": "Palmer",
+      "country": "PR",
+      "start": "2026-03-04",
+      "end": "2026-03-04",
+      "days": 1
+    },
+    {
+      "destination": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "country": "PR",
+      "start": "2026-03-05",
+      "end": "2026-03-05",
+      "days": 1
+    },
+    {
+      "destination": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "country": "PR",
+      "start": "2026-03-06",
+      "end": "2026-03-06",
+      "days": 1
+    },
+    {
+      "destination": "Durham, North Carolina, US",
+      "city": "Durham",
+      "country": "US",
+      "start": "2026-03-07",
+      "end": "2026-03-07",
+      "days": 1
+    },
+    {
+      "destination": "Durham, North Carolina, US",
+      "city": "Durham",
+      "country": "US",
+      "start": "2026-03-08",
+      "end": "2026-03-08",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-09",
+      "end": "2026-03-12",
+      "days": 4
+    },
+    {
+      "destination": "Union City, Pennsylvania, US",
+      "city": "Union City",
+      "country": "US",
+      "start": "2026-03-13",
+      "end": "2026-03-13",
+      "days": 1
+    },
+    {
+      "destination": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "country": "US",
+      "start": "2026-03-14",
+      "end": "2026-03-14",
+      "days": 1
+    },
+    {
+      "destination": "Cayuga Heights, New York, US",
+      "city": "Cayuga Heights",
+      "country": "US",
+      "start": "2026-03-15",
+      "end": "2026-03-15",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-16",
+      "end": "2026-03-19",
+      "days": 4
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-21",
+      "end": "2026-03-21",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-23",
+      "end": "2026-03-23",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-24",
+      "end": "2026-03-24",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-03-25",
+      "end": "2026-03-25",
+      "days": 1
+    },
+    {
+      "destination": "Foxborough, Massachusetts, US",
+      "city": "Foxborough",
+      "country": "US",
+      "start": "2026-03-26",
+      "end": "2026-03-26",
+      "days": 1
+    },
+    {
+      "destination": "Boston, Massachusetts, US",
+      "city": "Boston",
+      "country": "US",
+      "start": "2026-03-27",
+      "end": "2026-03-27",
+      "days": 1
+    },
+    {
+      "destination": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "country": "US",
+      "start": "2026-03-28",
+      "end": "2026-03-28",
+      "days": 1
+    },
+    {
+      "destination": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "country": "US",
+      "start": "2026-03-29",
+      "end": "2026-03-29",
+      "days": 1
+    },
+    {
+      "destination": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "country": "US",
+      "start": "2026-03-30",
+      "end": "2026-03-30",
+      "days": 1
+    },
+    {
+      "destination": "Paxtang, Pennsylvania, US",
+      "city": "Paxtang",
+      "country": "US",
+      "start": "2026-03-31",
+      "end": "2026-03-31",
+      "days": 1
+    },
+    {
+      "destination": "Conneaut Lakeshore, Pennsylvania, US",
+      "city": "Conneaut Lakeshore",
+      "country": "US",
+      "start": "2026-04-01",
+      "end": "2026-04-01",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-04-02",
+      "end": "2026-04-03",
+      "days": 2
+    },
+    {
+      "destination": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "country": "US",
+      "start": "2026-04-04",
+      "end": "2026-04-04",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-04-05",
+      "end": "2026-04-11",
+      "days": 6
+    },
+    {
+      "destination": "Mount Oliver, Pennsylvania, US",
+      "city": "Mount Oliver",
+      "country": "US",
+      "start": "2026-04-12",
+      "end": "2026-04-12",
+      "days": 1
+    },
+    {
+      "destination": "Mount Oliver, Pennsylvania, US",
+      "city": "Mount Oliver",
+      "country": "US",
+      "start": "2026-04-13",
+      "end": "2026-04-13",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-04-14",
+      "end": "2026-04-21",
+      "days": 8
+    },
+    {
+      "destination": "Homestead, Pennsylvania, US",
+      "city": "Homestead",
+      "country": "US",
+      "start": "2026-04-22",
+      "end": "2026-04-22",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-04-23",
+      "end": "2026-04-23",
+      "days": 1
+    },
+    {
+      "destination": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "country": "US",
+      "start": "2026-04-24",
+      "end": "2026-04-24",
+      "days": 1
+    },
+    {
+      "destination": "New Haven, Connecticut, US",
+      "city": "New Haven",
+      "country": "US",
+      "start": "2026-04-25",
+      "end": "2026-04-25",
+      "days": 1
+    },
+    {
+      "destination": "New York City, New York, US",
+      "city": "New York City",
+      "country": "US",
+      "start": "2026-04-26",
+      "end": "2026-04-26",
+      "days": 1
+    },
+    {
+      "destination": "Union City, Pennsylvania, US",
+      "city": "Union City",
+      "country": "US",
+      "start": "2026-04-27",
+      "end": "2026-04-27",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-04-28",
+      "end": "2026-05-02",
+      "days": 5
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-03",
+      "end": "2026-05-03",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-04",
+      "end": "2026-05-04",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-05",
+      "end": "2026-05-05",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-06",
+      "end": "2026-05-12",
+      "days": 7
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-13",
+      "end": "2026-05-13",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-14",
+      "end": "2026-05-14",
+      "days": 1
+    },
+    {
+      "destination": "Paxtang, Pennsylvania, US",
+      "city": "Paxtang",
+      "country": "US",
+      "start": "2026-05-15",
+      "end": "2026-05-15",
+      "days": 1
+    },
+    {
+      "destination": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "country": "US",
+      "start": "2026-05-16",
+      "end": "2026-05-16",
+      "days": 1
+    },
+    {
+      "destination": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "country": "US",
+      "start": "2026-05-17",
+      "end": "2026-05-17",
+      "days": 1
+    },
+    {
+      "destination": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "country": "US",
+      "start": "2026-05-18",
+      "end": "2026-05-18",
+      "days": 1
+    },
+    {
+      "destination": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "country": "US",
+      "start": "2026-05-19",
+      "end": "2026-05-19",
+      "days": 1
+    },
+    {
+      "destination": "Pupukea, Hawaii, US",
+      "city": "Pupukea",
+      "country": "US",
+      "start": "2026-05-20",
+      "end": "2026-05-20",
+      "days": 1
+    },
+    {
+      "destination": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "country": "US",
+      "start": "2026-05-21",
+      "end": "2026-05-21",
+      "days": 1
+    },
+    {
+      "destination": "'Aiea, Hawaii, US",
+      "city": "'Aiea",
+      "country": "US",
+      "start": "2026-05-22",
+      "end": "2026-05-22",
+      "days": 1
+    },
+    {
+      "destination": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "country": "US",
+      "start": "2026-05-23",
+      "end": "2026-05-23",
+      "days": 1
+    },
+    {
+      "destination": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "country": "US",
+      "start": "2026-05-24",
+      "end": "2026-05-24",
+      "days": 1
+    },
+    {
+      "destination": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "country": "US",
+      "start": "2026-05-25",
+      "end": "2026-05-25",
+      "days": 1
+    },
+    {
+      "destination": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "country": "US",
+      "start": "2026-05-26",
+      "end": "2026-05-26",
+      "days": 1
+    },
+    {
+      "destination": "Coronado, California, US",
+      "city": "Coronado",
+      "country": "US",
+      "start": "2026-05-27",
+      "end": "2026-05-27",
+      "days": 1
+    },
+    {
+      "destination": "Port Hueneme, California, US",
+      "city": "Port Hueneme",
+      "country": "US",
+      "start": "2026-05-28",
+      "end": "2026-05-28",
+      "days": 1
+    },
+    {
+      "destination": "Gustine, California, US",
+      "city": "Gustine",
+      "country": "US",
+      "start": "2026-05-29",
+      "end": "2026-05-29",
+      "days": 1
+    },
+    {
+      "destination": "Huntington Beach, California, US",
+      "city": "Huntington Beach",
+      "country": "US",
+      "start": "2026-05-30",
+      "end": "2026-05-30",
+      "days": 1
+    },
+    {
+      "destination": "Hollywood, California, US",
+      "city": "Hollywood",
+      "country": "US",
+      "start": "2026-05-31",
+      "end": "2026-05-31",
+      "days": 1
+    },
+    {
+      "destination": "Aldine, Texas, US",
+      "city": "Aldine",
+      "country": "US",
+      "start": "2026-06-01",
+      "end": "2026-06-01",
+      "days": 1
+    },
+    {
+      "destination": "Guarulhos, Sao Paulo, BR",
+      "city": "Guarulhos",
+      "country": "BR",
+      "start": "2026-06-02",
+      "end": "2026-06-02",
+      "days": 1
+    },
+    {
+      "destination": "Sao Paulo, Sao Paulo, BR",
+      "city": "Sao Paulo",
+      "country": "BR",
+      "start": "2026-06-03",
+      "end": "2026-06-04",
+      "days": 2
+    }
+  ],
+  "places_visited": [
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 941,
+      "first_visit": "2026-01-20",
+      "last_visit": "2026-05-19"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 628,
+      "first_visit": "2026-05-18",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 213,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "New Haven, Connecticut, US",
+      "city": "New Haven",
+      "state": "Connecticut",
+      "country": "US",
+      "photos": 184,
+      "first_visit": "2026-03-30",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 177,
+      "first_visit": "2026-03-02",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Palmer, Rio Grande, PR",
+      "city": "Palmer",
+      "state": "Rio Grande",
+      "country": "PR",
+      "photos": 177,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-04"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 162,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 127,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 124,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Hollywood, California, US",
+      "city": "Hollywood",
+      "state": "California",
+      "country": "US",
+      "photos": 121,
+      "first_visit": "2026-05-31",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "'Aiea, Hawaii, US",
+      "city": "'Aiea",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 117,
+      "first_visit": "2026-05-22",
+      "last_visit": "2026-05-22"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 116,
+      "first_visit": "2026-03-02",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "New York City, New York, US",
+      "city": "New York City",
+      "state": "New York",
+      "country": "US",
+      "photos": 116,
+      "first_visit": "2026-03-30",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 92,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 89,
+      "first_visit": "2026-01-06",
+      "last_visit": "2026-01-19"
+    },
+    {
+      "place": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 84,
+      "first_visit": "2026-03-14",
+      "last_visit": "2026-04-24"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 83,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-03"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 83,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 78,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-18"
+    },
+    {
+      "place": "Long Island City, New York, US",
+      "city": "Long Island City",
+      "state": "New York",
+      "country": "US",
+      "photos": 78,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 77,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-03-28"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 73,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Saint Pete Beach, Florida, US",
+      "city": "Saint Pete Beach",
+      "state": "Florida",
+      "country": "US",
+      "photos": 67,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Saint Petersburg, Florida, US",
+      "city": "Saint Petersburg",
+      "state": "Florida",
+      "country": "US",
+      "photos": 64,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 63,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 61,
+      "first_visit": "2026-01-01",
+      "last_visit": "2026-01-17"
+    },
+    {
+      "place": "Foxborough, Massachusetts, US",
+      "city": "Foxborough",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 59,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-03-26"
+    },
+    {
+      "place": "Boston, Massachusetts, US",
+      "city": "Boston",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 59,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 59,
+      "first_visit": "2026-03-25",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 56,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 54,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 51,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Pupukea, Hawaii, US",
+      "city": "Pupukea",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 50,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Hale'iwa, Hawaii, US",
+      "city": "Hale'iwa",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 48,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 47,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 46,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Kailua, Hawaii, US",
+      "city": "Kailua",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 45,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 44,
+      "first_visit": "2026-02-22",
+      "last_visit": "2026-05-18"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 44,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 43,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 41,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Palmer, Rio Grande, PR",
+      "city": "Palmer",
+      "state": "Rio Grande",
+      "country": "PR",
+      "photos": 38,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-04"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 38,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Port Hueneme, California, US",
+      "city": "Port Hueneme",
+      "state": "California",
+      "country": "US",
+      "photos": 38,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-28"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 36,
+      "first_visit": "2026-01-02",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Pupukea, Hawaii, US",
+      "city": "Pupukea",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 36,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Gustine, California, US",
+      "city": "Gustine",
+      "state": "California",
+      "country": "US",
+      "photos": 36,
+      "first_visit": "2026-05-29",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 35,
+      "first_visit": "2026-03-27",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Paxtang, Pennsylvania, US",
+      "city": "Paxtang",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 35,
+      "first_visit": "2026-03-31",
+      "last_visit": "2026-05-15"
+    },
+    {
+      "place": "Huntington Beach, California, US",
+      "city": "Huntington Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 35,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 33,
+      "first_visit": "2026-02-27",
+      "last_visit": "2026-04-04"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 31,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 31,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 31,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Coronado, California, US",
+      "city": "Coronado",
+      "state": "California",
+      "country": "US",
+      "photos": 31,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 30,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 30,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 29,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-18"
+    },
+    {
+      "place": "La Dolores, Rio Grande, PR",
+      "city": "La Dolores",
+      "state": "Rio Grande",
+      "country": "PR",
+      "photos": 29,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-04"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 29,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 28,
+      "first_visit": "2026-01-01",
+      "last_visit": "2026-01-03"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 28,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-04-12"
+    },
+    {
+      "place": "Durham, North Carolina, US",
+      "city": "Durham",
+      "state": "North Carolina",
+      "country": "US",
+      "photos": 28,
+      "first_visit": "2026-03-08",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 28,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 27,
+      "first_visit": "2026-03-06",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 26,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Watertown, Massachusetts, US",
+      "city": "Watertown",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 26,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 26,
+      "first_visit": "2026-04-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "New York City, New York, US",
+      "city": "New York City",
+      "state": "New York",
+      "country": "US",
+      "photos": 26,
+      "first_visit": "2026-03-30",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 25,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-17"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 25,
+      "first_visit": "2026-02-24",
+      "last_visit": "2026-04-21"
+    },
+    {
+      "place": "Brook Park, Ohio, US",
+      "city": "Brook Park",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 25,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 24,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 24,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Encinitas, California, US",
+      "city": "Encinitas",
+      "state": "California",
+      "country": "US",
+      "photos": 24,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Paradise, Nevada, US",
+      "city": "Paradise",
+      "state": "Nevada",
+      "country": "US",
+      "photos": 23,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Mountain View, California, US",
+      "city": "Mountain View",
+      "state": "California",
+      "country": "US",
+      "photos": 23,
+      "first_visit": "2026-05-29",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Sao Paulo, Sao Paulo, BR",
+      "city": "Sao Paulo",
+      "state": "Sao Paulo",
+      "country": "BR",
+      "photos": 23,
+      "first_visit": "2026-06-02",
+      "last_visit": "2026-06-04"
+    },
+    {
+      "place": "Montour Falls, New York, US",
+      "city": "Montour Falls",
+      "state": "New York",
+      "country": "US",
+      "photos": 22,
+      "first_visit": "2026-03-15",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 22,
+      "first_visit": "2026-04-24",
+      "last_visit": "2026-04-24"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 22,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 22,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Dixiana, Alabama, US",
+      "city": "Dixiana",
+      "state": "Alabama",
+      "country": "US",
+      "photos": 21,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Stoneboro, Pennsylvania, US",
+      "city": "Stoneboro",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 21,
+      "first_visit": "2026-01-20",
+      "last_visit": "2026-05-19"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 21,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Hamburg, New Jersey, US",
+      "city": "Hamburg",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 20,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 20,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-26"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 19,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Beverly Hills, California, US",
+      "city": "Beverly Hills",
+      "state": "California",
+      "country": "US",
+      "photos": 19,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Aldine, Texas, US",
+      "city": "Aldine",
+      "state": "Texas",
+      "country": "US",
+      "photos": 19,
+      "first_visit": "2026-06-01",
+      "last_visit": "2026-06-02"
+    },
+    {
+      "place": "Arabi, Louisiana, US",
+      "city": "Arabi",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-02-14",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Durham, North Carolina, US",
+      "city": "Durham",
+      "state": "North Carolina",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-03-07",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Mount Oliver, Pennsylvania, US",
+      "city": "Mount Oliver",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-04-12",
+      "last_visit": "2026-04-12"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-04-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 18,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 17,
+      "first_visit": "2026-02-24",
+      "last_visit": "2026-05-07"
+    },
+    {
+      "place": "Pittsburgh, Pennsylvania, US",
+      "city": "Pittsburgh",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 17,
+      "first_visit": "2026-02-27",
+      "last_visit": "2026-04-04"
+    },
+    {
+      "place": "Culver City, California, US",
+      "city": "Culver City",
+      "state": "California",
+      "country": "US",
+      "photos": 17,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Malibu Beach, California, US",
+      "city": "Malibu Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 17,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Gilroy, California, US",
+      "city": "Gilroy",
+      "state": "California",
+      "country": "US",
+      "photos": 17,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 16,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 16,
+      "first_visit": "2026-02-07",
+      "last_visit": "2026-05-13"
+    },
+    {
+      "place": "Livingston, Alabama, US",
+      "city": "Livingston",
+      "state": "Alabama",
+      "country": "US",
+      "photos": 16,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-13"
+    },
+    {
+      "place": "Johnsonburg, Pennsylvania, US",
+      "city": "Johnsonburg",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 16,
+      "first_visit": "2026-03-13",
+      "last_visit": "2026-05-15"
+    },
+    {
+      "place": "Kailua, Hawaii, US",
+      "city": "Kailua",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 16,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Lennox, California, US",
+      "city": "Lennox",
+      "state": "California",
+      "country": "US",
+      "photos": 16,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-06-01"
+    },
+    {
+      "place": "Carolina, Carolina, PR",
+      "city": "Carolina",
+      "state": "Carolina",
+      "country": "PR",
+      "photos": 15,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Playa Fortuna, Luquillo, PR",
+      "city": "Playa Fortuna",
+      "state": "Luquillo",
+      "country": "PR",
+      "photos": 15,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Sandy Valley, Nevada, US",
+      "city": "Sandy Valley",
+      "state": "Nevada",
+      "country": "US",
+      "photos": 15,
+      "first_visit": "2026-05-19",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 15,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 14,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Carolina, Carolina, PR",
+      "city": "Carolina",
+      "state": "Carolina",
+      "country": "PR",
+      "photos": 14,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-07"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 14,
+      "first_visit": "2026-03-06",
+      "last_visit": "2026-03-07"
+    },
+    {
+      "place": "Homestead, Pennsylvania, US",
+      "city": "Homestead",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 14,
+      "first_visit": "2026-04-22",
+      "last_visit": "2026-04-22"
+    },
+    {
+      "place": "New Haven, Connecticut, US",
+      "city": "New Haven",
+      "state": "Connecticut",
+      "country": "US",
+      "photos": 14,
+      "first_visit": "2026-04-25",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Union City, Pennsylvania, US",
+      "city": "Union City",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 14,
+      "first_visit": "2026-03-13",
+      "last_visit": "2026-05-07"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 14,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 14,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 13,
+      "first_visit": "2026-01-01",
+      "last_visit": "2026-01-19"
+    },
+    {
+      "place": "Westwego, Louisiana, US",
+      "city": "Westwego",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Bedford, Kentucky, US",
+      "city": "Bedford",
+      "state": "Kentucky",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-02-16"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 13,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 13,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Brook Park, Ohio, US",
+      "city": "Brook Park",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-03-29",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Linesville, Pennsylvania, US",
+      "city": "Linesville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-03-08",
+      "last_visit": "2026-05-19"
+    },
+    {
+      "place": "Seven Trees, California, US",
+      "city": "Seven Trees",
+      "state": "California",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Rossmoor, California, US",
+      "city": "Rossmoor",
+      "state": "California",
+      "country": "US",
+      "photos": 13,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Marrero, Louisiana, US",
+      "city": "Marrero",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Middleburg Heights, Ohio, US",
+      "city": "Middleburg Heights",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Egypt Lake-Leto, Florida, US",
+      "city": "Egypt Lake-Leto",
+      "state": "Florida",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "South Pasadena, Florida, US",
+      "city": "South Pasadena",
+      "state": "Florida",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-03-14",
+      "last_visit": "2026-03-14"
+    },
+    {
+      "place": "Ithaca, New York, US",
+      "city": "Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-04-24",
+      "last_visit": "2026-04-24"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Malibu Beach, California, US",
+      "city": "Malibu Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-28"
+    },
+    {
+      "place": "Coronado, California, US",
+      "city": "Coronado",
+      "state": "California",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Alum Rock, California, US",
+      "city": "Alum Rock",
+      "state": "California",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-28"
+    },
+    {
+      "place": "Sausalito, California, US",
+      "city": "Sausalito",
+      "state": "California",
+      "country": "US",
+      "photos": 12,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 11,
+      "first_visit": "2026-01-10",
+      "last_visit": "2026-01-10"
+    },
+    {
+      "place": "Scottsville, Kentucky, US",
+      "city": "Scottsville",
+      "state": "Kentucky",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Jefferson, Louisiana, US",
+      "city": "Jefferson",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-02-14",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Meridian, Mississippi, US",
+      "city": "Meridian",
+      "state": "Mississippi",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Jamestown, Ohio, US",
+      "city": "Jamestown",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-02-16"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-02-19",
+      "last_visit": "2026-05-01"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 11,
+      "first_visit": "2026-03-03",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-03-27",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Beverly, New Jersey, US",
+      "city": "Beverly",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Gustine, California, US",
+      "city": "Gustine",
+      "state": "California",
+      "country": "US",
+      "photos": 11,
+      "first_visit": "2026-05-29",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Guarulhos, Sao Paulo, BR",
+      "city": "Guarulhos",
+      "state": "Sao Paulo",
+      "country": "BR",
+      "photos": 11,
+      "first_visit": "2026-06-02",
+      "last_visit": "2026-06-02"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-01-24",
+      "last_visit": "2026-05-13"
+    },
+    {
+      "place": "Jefferson, Louisiana, US",
+      "city": "Jefferson",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Jefferson, Louisiana, US",
+      "city": "Jefferson",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-13"
+    },
+    {
+      "place": "West Salem, Ohio, US",
+      "city": "West Salem",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-02-16"
+    },
+    {
+      "place": "Bradford Woods, Pennsylvania, US",
+      "city": "Bradford Woods",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-02-27",
+      "last_visit": "2026-04-11"
+    },
+    {
+      "place": "Boston, Massachusetts, US",
+      "city": "Boston",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-03-27",
+      "last_visit": "2026-03-29"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Hesperia, California, US",
+      "city": "Hesperia",
+      "state": "California",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Hickam Field, Hawaii, US",
+      "city": "Hickam Field",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Malibu, California, US",
+      "city": "Malibu",
+      "state": "California",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-28"
+    },
+    {
+      "place": "King City, California, US",
+      "city": "King City",
+      "state": "California",
+      "country": "US",
+      "photos": 10,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 9,
+      "first_visit": "2026-01-04",
+      "last_visit": "2026-01-18"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 9,
+      "first_visit": "2026-01-07",
+      "last_visit": "2026-01-16"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 9,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-17"
+    },
+    {
+      "place": "Jefferson, Louisiana, US",
+      "city": "Jefferson",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-15"
+    },
+    {
+      "place": "Evans City, Pennsylvania, US",
+      "city": "Evans City",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-01-20",
+      "last_visit": "2026-02-28"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 9,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Inglewood, California, US",
+      "city": "Inglewood",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-19",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Waimanalo, Hawaii, US",
+      "city": "Waimanalo",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Kailua, Hawaii, US",
+      "city": "Kailua",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-26"
+    },
+    {
+      "place": "Camp Pendleton South, California, US",
+      "city": "Camp Pendleton South",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Seven Trees, California, US",
+      "city": "Seven Trees",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Costa Mesa, California, US",
+      "city": "Costa Mesa",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Hollywood, California, US",
+      "city": "Hollywood",
+      "state": "California",
+      "country": "US",
+      "photos": 9,
+      "first_visit": "2026-05-31",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 8,
+      "first_visit": "2026-01-06",
+      "last_visit": "2026-01-12"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 8,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 8,
+      "first_visit": "2026-01-07",
+      "last_visit": "2026-01-10"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 8,
+      "first_visit": "2026-01-06",
+      "last_visit": "2026-01-16"
+    },
+    {
+      "place": "Pittsburgh, Pennsylvania, US",
+      "city": "Pittsburgh",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-02-22",
+      "last_visit": "2026-04-22"
+    },
+    {
+      "place": "Hubbard, Ohio, US",
+      "city": "Hubbard",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-02-16",
+      "last_visit": "2026-02-28"
+    },
+    {
+      "place": "Brook Park, Ohio, US",
+      "city": "Brook Park",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-02-28"
+    },
+    {
+      "place": "Egypt Lake-Leto, Florida, US",
+      "city": "Egypt Lake-Leto",
+      "state": "Florida",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Gandy, Florida, US",
+      "city": "Gandy",
+      "state": "Florida",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Ceiba, Ceiba, PR",
+      "city": "Ceiba",
+      "state": "Ceiba",
+      "country": "PR",
+      "photos": 8,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "New Haven, Connecticut, US",
+      "city": "New Haven",
+      "state": "Connecticut",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-04-25",
+      "last_visit": "2026-04-25"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "New York City, New York, US",
+      "city": "New York City",
+      "state": "New York",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Long Island City, New York, US",
+      "city": "Long Island City",
+      "state": "New York",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Niles, Ohio, US",
+      "city": "Niles",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-02-16",
+      "last_visit": "2026-05-18"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 8,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Gulfport, Florida, US",
+      "city": "Gulfport",
+      "state": "Florida",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Aguas Claras, Ceiba, PR",
+      "city": "Aguas Claras",
+      "state": "Ceiba",
+      "country": "PR",
+      "photos": 7,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-03-08",
+      "last_visit": "2026-05-18"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-03-15",
+      "last_visit": "2026-05-10"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-01-20",
+      "last_visit": "2026-05-15"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-04-03",
+      "last_visit": "2026-05-11"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-04-08",
+      "last_visit": "2026-05-13"
+    },
+    {
+      "place": "Enterprise, Nevada, US",
+      "city": "Enterprise",
+      "state": "Nevada",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-19",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-22",
+      "last_visit": "2026-05-22"
+    },
+    {
+      "place": "Waimanalo, Hawaii, US",
+      "city": "Waimanalo",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Kailua, Hawaii, US",
+      "city": "Kailua",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "San Clemente, California, US",
+      "city": "San Clemente",
+      "state": "California",
+      "country": "US",
+      "photos": 7,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 6,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 6,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 6,
+      "first_visit": "2026-01-10",
+      "last_visit": "2026-01-18"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-01-28",
+      "last_visit": "2026-05-11"
+    },
+    {
+      "place": "Saint Pete Beach, Florida, US",
+      "city": "Saint Pete Beach",
+      "state": "Florida",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "Tierra Verde, Florida, US",
+      "city": "Tierra Verde",
+      "state": "Florida",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 6,
+      "first_visit": "2026-03-02",
+      "last_visit": "2026-03-02"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 6,
+      "first_visit": "2026-03-04",
+      "last_visit": "2026-03-04"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 6,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Morrisville, North Carolina, US",
+      "city": "Morrisville",
+      "state": "North Carolina",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-07",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Cayuga Heights, New York, US",
+      "city": "Cayuga Heights",
+      "state": "New York",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-15",
+      "last_visit": "2026-03-15"
+    },
+    {
+      "place": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-03-26"
+    },
+    {
+      "place": "Conneaut Lakeshore, Pennsylvania, US",
+      "city": "Conneaut Lakeshore",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-04-01",
+      "last_visit": "2026-04-01"
+    },
+    {
+      "place": "Mount Oliver, Pennsylvania, US",
+      "city": "Mount Oliver",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-04-13",
+      "last_visit": "2026-04-22"
+    },
+    {
+      "place": "Endwell, New York, US",
+      "city": "Endwell",
+      "state": "New York",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-04-24",
+      "last_visit": "2026-04-25"
+    },
+    {
+      "place": "Mount Vernon, New York, US",
+      "city": "Mount Vernon",
+      "state": "New York",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-03-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Wahiawa, Hawaii, US",
+      "city": "Wahiawa",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-20"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Hickam Field, Hawaii, US",
+      "city": "Hickam Field",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Coronado, California, US",
+      "city": "Coronado",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Huntington Beach, California, US",
+      "city": "Huntington Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Rossmoor, California, US",
+      "city": "Rossmoor",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 6,
+      "first_visit": "2026-05-31",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 5,
+      "first_visit": "2026-01-08",
+      "last_visit": "2026-01-08"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 5,
+      "first_visit": "2026-01-08",
+      "last_visit": "2026-01-19"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-05-03"
+    },
+    {
+      "place": "Sharon, Pennsylvania, US",
+      "city": "Sharon",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-03-24"
+    },
+    {
+      "place": "Marrero, Louisiana, US",
+      "city": "Marrero",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Marrero, Louisiana, US",
+      "city": "Marrero",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-13"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-02-22",
+      "last_visit": "2026-02-22"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 5,
+      "first_visit": "2026-03-02",
+      "last_visit": "2026-03-02"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 5,
+      "first_visit": "2026-03-02",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Fajardo, Fajardo, PR",
+      "city": "Fajardo",
+      "state": "Fajardo",
+      "country": "PR",
+      "photos": 5,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 5,
+      "first_visit": "2026-03-06",
+      "last_visit": "2026-03-07"
+    },
+    {
+      "place": "Cayuga Heights, New York, US",
+      "city": "Cayuga Heights",
+      "state": "New York",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-03-14",
+      "last_visit": "2026-03-15"
+    },
+    {
+      "place": "Philadelphia, Pennsylvania, US",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-03-30",
+      "last_visit": "2026-03-30"
+    },
+    {
+      "place": "Waimanalo, Hawaii, US",
+      "city": "Waimanalo",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Kailua, Hawaii, US",
+      "city": "Kailua",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Coronado, California, US",
+      "city": "Coronado",
+      "state": "California",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Vista, California, US",
+      "city": "Vista",
+      "state": "California",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Compton, California, US",
+      "city": "Compton",
+      "state": "California",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Hollywood, California, US",
+      "city": "Hollywood",
+      "state": "California",
+      "country": "US",
+      "photos": 5,
+      "first_visit": "2026-05-31",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-01",
+      "last_visit": "2026-01-03"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-06",
+      "last_visit": "2026-01-12"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Marechal Deodoro, Alagoas, BR",
+      "city": "Marechal Deodoro",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-09",
+      "last_visit": "2026-01-09"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-13",
+      "last_visit": "2026-01-14"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 4,
+      "first_visit": "2026-01-07",
+      "last_visit": "2026-01-16"
+    },
+    {
+      "place": "Marrero, Louisiana, US",
+      "city": "Marrero",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-13",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Jefferson, Louisiana, US",
+      "city": "Jefferson",
+      "state": "Louisiana",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-14",
+      "last_visit": "2026-02-14"
+    },
+    {
+      "place": "Avalon, Pennsylvania, US",
+      "city": "Avalon",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-22",
+      "last_visit": "2026-02-22"
+    },
+    {
+      "place": "West View, Pennsylvania, US",
+      "city": "West View",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-22",
+      "last_visit": "2026-04-13"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-02-28"
+    },
+    {
+      "place": "Brook Park, Ohio, US",
+      "city": "Brook Park",
+      "state": "Ohio",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-02-28",
+      "last_visit": "2026-02-28"
+    },
+    {
+      "place": "Saint Pete Beach, Florida, US",
+      "city": "Saint Pete Beach",
+      "state": "Florida",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-03-01",
+      "last_visit": "2026-03-01"
+    },
+    {
+      "place": "San Juan, San Juan, PR",
+      "city": "San Juan",
+      "state": "San Juan",
+      "country": "PR",
+      "photos": 4,
+      "first_visit": "2026-03-06",
+      "last_visit": "2026-03-06"
+    },
+    {
+      "place": "Morrisville, North Carolina, US",
+      "city": "Morrisville",
+      "state": "North Carolina",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-03-07",
+      "last_visit": "2026-03-07"
+    },
+    {
+      "place": "Durham, North Carolina, US",
+      "city": "Durham",
+      "state": "North Carolina",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-03-08",
+      "last_visit": "2026-03-08"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-03-28",
+      "last_visit": "2026-03-28"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-05",
+      "last_visit": "2026-04-16"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-08",
+      "last_visit": "2026-04-22"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-08",
+      "last_visit": "2026-04-08"
+    },
+    {
+      "place": "East Ithaca, New York, US",
+      "city": "East Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-24",
+      "last_visit": "2026-04-24"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-04-26",
+      "last_visit": "2026-04-26"
+    },
+    {
+      "place": "Meadville, Pennsylvania, US",
+      "city": "Meadville",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-11",
+      "last_visit": "2026-05-15"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-16",
+      "last_visit": "2026-05-16"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Weehawken, New Jersey, US",
+      "city": "Weehawken",
+      "state": "New Jersey",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "Manhattan, New York, US",
+      "city": "Manhattan",
+      "state": "New York",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-17",
+      "last_visit": "2026-05-17"
+    },
+    {
+      "place": "El Segundo, California, US",
+      "city": "El Segundo",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-20",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-22",
+      "last_visit": "2026-05-22"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Maunawili, Hawaii, US",
+      "city": "Maunawili",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-26"
+    },
+    {
+      "place": "Malibu Beach, California, US",
+      "city": "Malibu Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "San Joaquin Hills, California, US",
+      "city": "San Joaquin Hills",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Mountain View, California, US",
+      "city": "Mountain View",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-29",
+      "last_visit": "2026-05-29"
+    },
+    {
+      "place": "Huntington Beach, California, US",
+      "city": "Huntington Beach",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Rossmoor, California, US",
+      "city": "Rossmoor",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-30",
+      "last_visit": "2026-05-30"
+    },
+    {
+      "place": "Santa Monica, California, US",
+      "city": "Santa Monica",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-28",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Echo Park, California, US",
+      "city": "Echo Park",
+      "state": "California",
+      "country": "US",
+      "photos": 4,
+      "first_visit": "2026-05-31",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 3,
+      "first_visit": "2026-01-12",
+      "last_visit": "2026-01-19"
+    },
+    {
+      "place": "Maceio, Alagoas, BR",
+      "city": "Maceio",
+      "state": "Alagoas",
+      "country": "BR",
+      "photos": 3,
+      "first_visit": "2026-01-16",
+      "last_visit": "2026-01-16"
+    },
+    {
+      "place": "Hapeville, Georgia, US",
+      "city": "Hapeville",
+      "state": "Georgia",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-01-20",
+      "last_visit": "2026-01-20"
+    },
+    {
+      "place": "Covington, Kentucky, US",
+      "city": "Covington",
+      "state": "Kentucky",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-02-12",
+      "last_visit": "2026-02-12"
+    },
+    {
+      "place": "Aguas Claras, Ceiba, PR",
+      "city": "Aguas Claras",
+      "state": "Ceiba",
+      "country": "PR",
+      "photos": 3,
+      "first_visit": "2026-03-05",
+      "last_visit": "2026-03-05"
+    },
+    {
+      "place": "Cambridge, Massachusetts, US",
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-03-28",
+      "last_visit": "2026-03-28"
+    },
+    {
+      "place": "Bloomfield, Pennsylvania, US",
+      "city": "Bloomfield",
+      "state": "Pennsylvania",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-04-11",
+      "last_visit": "2026-04-12"
+    },
+    {
+      "place": "Ithaca, New York, US",
+      "city": "Ithaca",
+      "state": "New York",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-04-24",
+      "last_visit": "2026-04-24"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-21",
+      "last_visit": "2026-05-21"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-22",
+      "last_visit": "2026-05-22"
+    },
+    {
+      "place": "Hickam Field, Hawaii, US",
+      "city": "Hickam Field",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-22",
+      "last_visit": "2026-05-22"
+    },
+    {
+      "place": "Waimanalo, Hawaii, US",
+      "city": "Waimanalo",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-23",
+      "last_visit": "2026-05-23"
+    },
+    {
+      "place": "Honolulu, Hawaii, US",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Waimanalo Beach, Hawaii, US",
+      "city": "Waimanalo Beach",
+      "state": "Hawaii",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-24",
+      "last_visit": "2026-05-24"
+    },
+    {
+      "place": "Lompoc, California, US",
+      "city": "Lompoc",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-25",
+      "last_visit": "2026-05-25"
+    },
+    {
+      "place": "Marina del Rey, California, US",
+      "city": "Marina del Rey",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-26",
+      "last_visit": "2026-05-31"
+    },
+    {
+      "place": "Garden Grove, California, US",
+      "city": "Garden Grove",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Dana Point, California, US",
+      "city": "Dana Point",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "La Jolla, California, US",
+      "city": "La Jolla",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-27",
+      "last_visit": "2026-05-27"
+    },
+    {
+      "place": "Stanford, California, US",
+      "city": "Stanford",
+      "state": "California",
+      "country": "US",
+      "photos": 3,
+      "first_visit": "2026-05-29",
+      "last_visit": "2026-05-29"
+    }
+  ]
+}
