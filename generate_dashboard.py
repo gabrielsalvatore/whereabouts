@@ -427,7 +427,7 @@ function initMap(){{
       radius:r, fillColor:'#6366f1', color:'rgba(255,255,255,0.5)',
       weight:1.5, fillOpacity:0.72, interactive:true
     }});
-    m.bindTooltip(`<b>${{place.city}}</b><br>${{place.photos}} photos`,{{sticky:true}});
+    m.bindTooltip(`<b>${{place.metro||place.city}}</b><br>${{place.photos}} photos`,{{sticky:true}});
     m.on('click',()=>onMarkerClick(place.cluster_id));
     markersByCluster[place.cluster_id]=m;
     m.addTo(leafMap);
@@ -438,8 +438,13 @@ function initMap(){{
 }}
 
 function onMarkerClick(cid){{
-  const idx = DATA.trips.findIndex(t=>t.cluster_id===cid);
-  if(idx>=0){{ selT(idx) }}
+  if(sbTab==='people'){{
+    const place=DATA.places_visited.find(p=>p.cluster_id===cid);
+    if(place) selC(place.metro||place.city);
+  }} else {{
+    const idx=DATA.trips.findIndex(t=>t.cluster_id===cid);
+    if(idx>=0) selT(idx);
+  }}
 }}
 
 function highlightMarker(cid){{
@@ -453,11 +458,45 @@ function highlightMarker(cid){{
   }}
 }}
 
+function filterMapForPeople(){{
+  const locs=(ann().locations)||[];
+  Object.values(markersByCluster).forEach(m=>{{ if(leafMap.hasLayer(m)) leafMap.removeLayer(m); }});
+  // one dot per city: pick the most-photographed place for each location label
+  const bestByLoc={{}};
+  DATA.places_visited.forEach(place=>{{
+    if(place.lat==null||place.lon==null) return;
+    const label=place.metro||place.city;
+    if(!locs.includes(label)) return;
+    if(!bestByLoc[label]||place.photos>bestByLoc[label].photos) bestByLoc[label]=place;
+  }});
+  const bounds=[];
+  Object.values(bestByLoc).forEach(place=>{{
+    const m=markersByCluster[place.cluster_id];
+    if(!m) return;
+    m.addTo(leafMap);
+    bounds.push([place.lat,place.lon]);
+  }});
+  if(bounds.length) leafMap.fitBounds(bounds,{{padding:[30,30]}});
+}}
+
+function showAllMarkers(){{
+  const bounds=[];
+  DATA.places_visited.forEach(place=>{{
+    if(place.lat==null||place.lon==null) return;
+    const m=markersByCluster[place.cluster_id];
+    if(m&&!leafMap.hasLayer(m)) m.addTo(leafMap);
+    bounds.push([place.lat,place.lon]);
+  }});
+  if(bounds.length) leafMap.fitBounds(bounds,{{padding:[30,30]}});
+}}
+
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function switchTab(t){{
   sbTab=t;
   document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',(i===0&&t==='trips')||(i===1&&t==='people')));
-  renderSB();
+  renderSB();  // seeds locations if first visit
+  if(t==='people') filterMapForPeople();
+  else showAllMarkers();
 }}
 
 function renderSB(){{ sbTab==='trips'?renderTripsSB():renderPeopleSB() }}
@@ -569,7 +608,7 @@ function saveNewLoc(){{
   if(!val) return;
   const a=ann();
   if(!a.locations.includes(val)) a.locations.push(val);
-  persist(a); hideAddLoc(); renderSB(); selC(val);
+  persist(a); hideAddLoc(); renderSB(); filterMapForPeople(); selC(val);
 }}
 
 function startRename(idx,evt){{
@@ -597,7 +636,7 @@ function saveRename(idx){{
     a.locations[idx]=newName;
     if(selCity===oldName) selCity=newName;
   }}
-  persist(a); renderSB();
+  persist(a); renderSB(); filterMapForPeople();
   if(selCity===newName) openCityDetail(newName);
 }}
 
@@ -611,14 +650,14 @@ function deleteLoc(idx){{
   a.locations.splice(idx,1);
   delete a.people[loc];
   if(selCity===loc){{ selCity=null; closeDetail(); }}
-  persist(a); renderSB();
+  persist(a); renderSB(); filterMapForPeople();
 }}
 
 // ── Selection ─────────────────────────────────────────────────────────────────
 function selT(idx){{
   selTrip=DATA.trips[idx]; dTab='journal';
   // switch sidebar to trips tab if needed
-  if(sbTab!=='trips'){{ sbTab='trips'; document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',i===0)); }}
+  if(sbTab!=='trips'){{ sbTab='trips'; document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',i===0)); showAllMarkers(); }}
   renderSB();
   openDetail();
   highlightMarker(selTrip.cluster_id);
