@@ -130,6 +130,51 @@ for t in trips_raw:
         "lon":         lon,
     })
 
+# ── inject missing metro trips ────────────────────────────────────────────────
+# If a metro-mapped cluster has ≥ MIN_PHOTOS but no trip covers that metro
+# during the same date window, add it so big-city visits aren't silently dropped.
+from datetime import date as _date
+
+MIN_PHOTOS_FOR_TRIP = 5
+
+def _days_between(d1, d2):
+    return (_date.fromisoformat(d2) - _date.fromisoformat(d1)).days + 1
+
+def _overlaps(s1, e1, s2, e2):
+    return not (e1 < s2 or s1 > e2)
+
+for c in clusters_raw:
+    if int(c["photo_count"]) < MIN_PHOTOS_FOR_TRIP:
+        continue
+    cid = c["cluster_id"]
+    co  = centroid.get(cid, {})
+    lat = co.get("lat")
+    lon = co.get("lon")
+    metro = nearest_metro(lat, lon)
+    if not metro:
+        continue
+    first, last = c["first_date"], c["last_date"]
+    # skip if any existing trip already covers this metro in the same window
+    if any(t["city"] == metro and _overlaps(first, last, t["start"], t["end"])
+           for t in trips):
+        continue
+    state   = c.get("admin1", "")
+    country = c["country"]
+    dest    = f"{metro}, {state}, {country}" if state else f"{metro}, {country}"
+    trips.append({
+        "cluster_id":  cid,
+        "destination": dest,
+        "city":        metro,
+        "country":     country,
+        "start":       first,
+        "end":         last,
+        "days":        _days_between(first, last),
+        "lat":         lat,
+        "lon":         lon,
+    })
+
+trips.sort(key=lambda t: t["start"])
+
 data["places_visited"] = places
 data["trips"]          = trips
 
@@ -454,8 +499,8 @@ function renderTripsSB(){{
 function seedLocations(a){{
   const seen=new Set(), locations=[];
   DATA.places_visited.forEach(p=>{{
-    const label=p.metro||p.city;
-    if(!seen.has(label)){{ seen.add(label); locations.push(label); }}
+    if(!p.metro) return;  // skip small towns with no metro mapping
+    if(!seen.has(p.metro)){{ seen.add(p.metro); locations.push(p.metro); }}
   }});
   a.locations=locations;
 }}
