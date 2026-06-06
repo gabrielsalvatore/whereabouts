@@ -594,16 +594,28 @@ function openDetail(){{
 
 function openCityDetail(city){{
   const a=ann(), people=a.people[city]||[];
-  const trip=DATA.trips.find(t=>t.city===city);
 
-  document.getElementById('d-title').textContent=`${{flag(trip?.country)}} ${{city}}`;
-  document.getElementById('d-sub').textContent=trip?trip.country:'';
+  // Best place for this city: match on metro label or exact city, pick most-photographed
+  const place=DATA.places_visited
+    .filter(p=>(p.metro||p.city)===city)
+    .sort((a,b)=>b.photos-a.photos)[0]
+    ||DATA.places_visited.find(p=>p.city===city);
+  const country=place?.country||DATA.trips.find(t=>t.city===city)?.country||'';
+
+  document.getElementById('d-title').textContent=`${{flag(country)}} ${{city}}`;
+  document.getElementById('d-sub').textContent=country;
 
   // show only people tab for city view
   document.querySelectorAll('.d-tab').forEach((el,i)=>el.classList.toggle('on',i===2));
   document.getElementById('d-tab-people').textContent=people.length?`People (${{people.length}})`:'People';
   document.getElementById('d-body').innerHTML=renderPeopleTab(people,city);
   document.getElementById('detail').classList.add('open');
+
+  // Pan map to the city's marker
+  if(place?.lat&&place?.lon){{
+    highlightMarker(place.cluster_id);
+    leafMap.panTo([place.lat,place.lon],{{animate:true,duration:.5}});
+  }}
 }}
 
 function closeDetail(){{
