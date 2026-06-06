@@ -6,6 +6,7 @@ Run any time you update travel_analysis.json:
     python3 generate_dashboard.py
 """
 import json
+import math
 from pathlib import Path
 
 BASE      = Path(__file__).parent
@@ -28,6 +29,47 @@ def read_csv(path):
 clusters_raw = read_csv(CLUS_PATH)
 trips_raw    = read_csv(TRIP_PATH)
 
+# ── metro area mapping ────────────────────────────────────────────────────────
+METRO_AREAS = [
+    (34.0522, -118.2437, "Los Angeles",   55),  # Hollywood, Santa Monica, Burbank
+    (42.3601,  -71.0589, "Boston",        55),  # Cambridge, Somerville, Foxborough
+    (40.7128,  -74.0060, "New York City", 55),  # Brooklyn, Queens, Jersey City
+    (27.9506,  -82.4572, "Tampa",         45),  # St Pete Beach, Clearwater
+    (21.3069, -157.8583, "Honolulu",      70),  # All of Oahu incl. Pupukea, North Shore
+    (-23.5505, -46.6333, "São Paulo",     55),  # Guarulhos
+    (18.4655,  -66.1057, "San Juan",      65),  # Fajardo, Rincon area
+    (33.7490,  -84.3880, "Atlanta",       45),  # Hapeville
+    (29.9511,  -90.0715, "New Orleans",   35),  # Arabi
+    (33.6700,  -86.8000, "Birmingham",    35),  # Dixiana
+    (37.7749, -122.4194, "San Francisco", 45),
+    (47.6062, -122.3321, "Seattle",       45),
+    (38.9072,  -77.0369, "Washington DC", 50),
+    (25.7617,  -80.1918, "Miami",         60),
+    (32.7157, -117.1611, "San Diego",     45),
+    (39.9526,  -75.1652, "Philadelphia",  45),
+    (41.8781,  -87.6298, "Chicago",       50),
+    (29.7604,  -95.3698, "Houston",       50),
+    (-9.6658,  -35.7350, "Maceió",        25),
+]
+
+def _hav(lat1, lon1, lat2, lon2):
+    R = 6371.0088
+    φ1, φ2 = math.radians(lat1), math.radians(lat2)
+    dφ = math.radians(lat2 - lat1)
+    dλ = math.radians(lon2 - lon1)
+    a = math.sin(dφ/2)**2 + math.cos(φ1)*math.cos(φ2)*math.sin(dλ/2)**2
+    return 2 * R * math.asin(math.sqrt(a))
+
+def nearest_metro(lat, lon):
+    if lat is None or lon is None:
+        return None
+    best_name, best_dist = None, float("inf")
+    for mlat, mlon, name, radius_km in METRO_AREAS:
+        d = _hav(lat, lon, mlat, mlon)
+        if d <= radius_km and d < best_dist:
+            best_dist, best_name = d, name
+    return best_name
+
 # cluster_id → {lat, lon}
 centroid = {
     r["cluster_id"]: {"lat": float(r["centroid_lat"]), "lon": float(r["centroid_lon"])}
@@ -40,14 +82,17 @@ places = []
 for c in sorted(clusters_raw, key=lambda x: -int(x["photo_count"])):
     cid = c["cluster_id"]
     co  = centroid.get(cid, {})
+    lat = co.get("lat")
+    lon = co.get("lon")
     places.append({
         "cluster_id":  cid,
         "place":       c["place_label"],
         "city":        c["city"],
         "state":       c["admin1"],
         "country":     c["country"],
-        "lat":         co.get("lat"),
-        "lon":         co.get("lon"),
+        "metro":       nearest_metro(lat, lon),
+        "lat":         lat,
+        "lon":         lon,
         "photos":      int(c["photo_count"]),
         "first_visit": c["first_date"],
         "last_visit":  c["last_date"],
@@ -386,28 +431,127 @@ function renderTripsSB(){{
   document.getElementById('sb-list').innerHTML=h;
 }}
 
+// ── People sidebar: user-managed location list ────────────────────────────────
+// Locations are stored in NOTES.locations (ordered array of label strings).
+// On first load they are seeded from places_visited: top city per state,
+// so you get "Honolulu" not "Waimanalo Beach", "São Paulo" not "Guarulhos", etc.
+
+function seedLocations(a){{
+  const seen=new Set(), locations=[];
+  DATA.places_visited.forEach(p=>{{
+    const label=p.metro||p.city;
+    if(!seen.has(label)){{ seen.add(label); locations.push(label); }}
+  }});
+  a.locations=locations;
+}}
+
 function renderPeopleSB(){{
   const a=ann();
-  const cities=[...new Set(DATA.trips.map(t=>t.city))].sort();
-  let h=`<input class="sb-search" type="text" placeholder="Search cities…" oninput="filterCities(this.value)"><div id="city-list">`;
-  cities.forEach(city=>{{
-    const trip=DATA.trips.find(t=>t.city===city);
-    const cnt=(a.people[city]||[]).length;
-    const isOn=selCity===city;
-    h+=`<div class="c-item ${{isOn?'on':''}}" onclick="selC('${{esc(city)}}')">
-      <div><div class="c-name">${{flag(trip?.country)}} ${{esc(city)}}</div>
-      <div class="c-country">${{trip?esc(trip.country):''}}</div></div>
-      ${{cnt?`<span class="c-badge">${{cnt}}</span>`:''}}
+  if(!a.locations||a.locations.length===0) {{ seedLocations(a); persist(a); }}
+
+  let h=`
+  <div style="padding:8px 10px 4px;display:flex;gap:6px">
+    <input class="sb-search" id="loc-search" placeholder="Search…" oninput="filterLocs(this.value)" style="flex:1">
+    <button class="btn btn-p" style="padding:6px 10px;font-size:12px" title="Add location" onclick="showAddLoc()">+</button>
+  </div>
+  <div id="add-loc-wrap" style="display:none;padding:0 10px 8px">
+    <input type="text" id="add-loc-inp" placeholder="Location name (e.g. Boston, Oahu…)"
+      onkeydown="if(event.key==='Enter')saveNewLoc();if(event.key==='Escape')hideAddLoc()">
+    <div style="display:flex;gap:6px;margin-top:6px">
+      <button class="btn btn-p" style="flex:1;font-size:12px" onclick="saveNewLoc()">Add</button>
+      <button class="btn btn-g" style="font-size:12px" onclick="hideAddLoc()">Cancel</button>
+    </div>
+  </div>
+  <div id="loc-list">`;
+
+  a.locations.forEach((loc,idx)=>{{
+    const cnt=(a.people[loc]||[]).length;
+    const isOn=selCity===loc;
+    h+=`<div class="c-item ${{isOn?'on':''}}" id="loc-${{idx}}">
+      <div style="flex:1;cursor:pointer;min-width:0" onclick="selC('${{esc(loc)}}')">
+        <div class="c-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+          ${{esc(loc)}}
+        </div>
+        <div class="c-country">${{cnt}} contact${{cnt!==1?'s':''}}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1px;flex-shrink:0">
+        ${{cnt?`<span class="c-badge" style="margin-right:4px">${{cnt}}</span>`:''}}
+        <button class="btn btn-d" style="padding:3px 6px;font-size:13px" title="Rename"
+          onclick="startRename(${{idx}},event)">✎</button>
+        <button class="btn btn-d" style="padding:3px 6px;font-size:13px" title="Remove"
+          onclick="deleteLoc(${{idx}})">✕</button>
+      </div>
     </div>`;
   }});
+
   h+='</div>';
   document.getElementById('sb-list').innerHTML=h;
 }}
 
-function filterCities(q){{
-  document.querySelectorAll('#city-list .c-item').forEach(el=>{{
-    el.style.display=el.querySelector('.c-name').textContent.toLowerCase().includes(q.toLowerCase())?'':'none';
+function filterLocs(q){{
+  const ql=q.toLowerCase();
+  document.querySelectorAll('#loc-list .c-item').forEach(el=>{{
+    const name=el.querySelector('.c-name');
+    if(name) el.style.display=name.textContent.toLowerCase().includes(ql)?'':'none';
   }});
+}}
+
+function showAddLoc(){{
+  document.getElementById('add-loc-wrap').style.display='block';
+  document.getElementById('add-loc-inp').focus();
+}}
+function hideAddLoc(){{
+  document.getElementById('add-loc-wrap').style.display='none';
+  document.getElementById('add-loc-inp').value='';
+}}
+function saveNewLoc(){{
+  const val=document.getElementById('add-loc-inp').value.trim();
+  if(!val) return;
+  const a=ann();
+  if(!a.locations.includes(val)) a.locations.push(val);
+  persist(a); hideAddLoc(); renderSB(); selC(val);
+}}
+
+function startRename(idx,evt){{
+  evt.stopPropagation();
+  const a=ann(), loc=a.locations[idx];
+  const el=document.getElementById('loc-'+idx);
+  el.innerHTML=`
+    <input type="text" id="ren-inp" value="${{esc(loc)}}" style="flex:1"
+      onkeydown="if(event.key==='Enter')saveRename(${{idx}});if(event.key==='Escape')renderSB()">
+    <button class="btn btn-p" style="padding:4px 9px;font-size:12px" onclick="saveRename(${{idx}})">Save</button>
+    <button class="btn btn-g" style="padding:4px 9px;font-size:12px" onclick="renderSB()">✕</button>`;
+  document.getElementById('ren-inp').select();
+}}
+
+function saveRename(idx){{
+  const newName=document.getElementById('ren-inp').value.trim();
+  if(!newName) return;
+  const a=ann(), oldName=a.locations[idx];
+  if(newName!==oldName){{
+    // Move contacts to new name
+    if(a.people[oldName]){{
+      a.people[newName]=[...(a.people[newName]||[]),...a.people[oldName]];
+      delete a.people[oldName];
+    }}
+    a.locations[idx]=newName;
+    if(selCity===oldName) selCity=newName;
+  }}
+  persist(a); renderSB();
+  if(selCity===newName) openCityDetail(newName);
+}}
+
+function deleteLoc(idx){{
+  const a=ann(), loc=a.locations[idx];
+  const cnt=(a.people[loc]||[]).length;
+  const msg=cnt
+    ?`Remove "${{loc}}"? This will delete ${{cnt}} contact${{cnt!==1?'s':''}}.`
+    :`Remove "${{loc}}"?`;
+  if(!confirm(msg)) return;
+  a.locations.splice(idx,1);
+  delete a.people[loc];
+  if(selCity===loc){{ selCity=null; closeDetail(); }}
+  persist(a); renderSB();
 }}
 
 // ── Selection ─────────────────────────────────────────────────────────────────
@@ -577,8 +721,13 @@ function addPerson(city){{
   const name=document.getElementById('pf-name').value.trim(); if(!name) return;
   const contact=document.getElementById('pf-contact').value.trim();
   const notes=document.getElementById('pf-notes').value.trim();
-  const a=ann(); a.people[city]=a.people[city]||[];
-  a.people[city].push({{id:Date.now().toString(),name,contact,notes}}); persist(a);
+  const a=ann();
+  a.people[city]=a.people[city]||[];
+  a.people[city].push({{id:Date.now().toString(),name,contact,notes}});
+  // Register this city in the People sidebar if not already there
+  if(!a.locations) a.locations=[];
+  if(!a.locations.includes(city)) a.locations.push(city);
+  persist(a);
   if(selTrip) openDetail(); else openCityDetail(city);
   renderSB();
 }}
