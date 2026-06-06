@@ -31,7 +31,7 @@ trips_raw    = read_csv(TRIP_PATH)
 
 # ── metro area mapping ────────────────────────────────────────────────────────
 METRO_AREAS = [
-    (34.0522, -118.2437, "Los Angeles",   55),  # Hollywood, Santa Monica, Burbank
+    (34.0522, -118.2437, "Los Angeles",   65),  # Hollywood, Santa Monica, Burbank, OC coast
     (42.3601,  -71.0589, "Boston",        55),  # Cambridge, Somerville, Foxborough
     (40.7128,  -74.0060, "New York City", 55),  # Brooklyn, Queens, Jersey City
     (27.9506,  -82.4572, "Tampa",         45),  # St Pete Beach, Clearwater
@@ -39,17 +39,22 @@ METRO_AREAS = [
     (-23.5505, -46.6333, "São Paulo",     55),  # Guarulhos
     (18.4655,  -66.1057, "San Juan",      65),  # Fajardo, Rincon area
     (33.7490,  -84.3880, "Atlanta",       45),  # Hapeville
-    (29.9511,  -90.0715, "New Orleans",   35),  # Arabi
+    (29.9511,  -90.0715, "New Orleans",   35),  # Arabi, Jefferson, Marrero
     (33.6700,  -86.8000, "Birmingham",    35),  # Dixiana
-    (37.7749, -122.4194, "San Francisco", 45),
+    (37.7749, -122.4194, "San Francisco", 55),  # Sausalito, Mountain View, Stanford
     (47.6062, -122.3321, "Seattle",       45),
     (38.9072,  -77.0369, "Washington DC", 50),
-    (25.7617,  -80.1918, "Miami",         60),
-    (32.7157, -117.1611, "San Diego",     45),
+    (25.7617,  -80.1918, "Miami",         60),  # Homestead, Doral
+    (32.7157, -117.1611, "San Diego",     50),  # Coronado, Encinitas, Vista
     (39.9526,  -75.1652, "Philadelphia",  45),
     (41.8781,  -87.6298, "Chicago",       50),
-    (29.7604,  -95.3698, "Houston",       50),
+    (29.7604,  -95.3698, "Houston",       50),  # Aldine
     (-9.6658,  -35.7350, "Maceió",        25),
+    (40.4406,  -79.9959, "Pittsburgh",    35),  # Bloomfield, Mount Oliver, West View
+    (41.4993,  -81.6944, "Cleveland",     40),  # Brook Park, Middleburg Heights
+    (37.3382, -121.8863, "San Jose",      35),  # Alum Rock, Seven Trees
+    (36.1699, -115.1398, "Las Vegas",     50),  # Paradise, Sandy Valley
+    (35.8271,  -78.8010, "Raleigh",       45),  # Durham, Morrisville, Cary
 ]
 
 def _hav(lat1, lon1, lat2, lon2):
@@ -101,18 +106,28 @@ for c in sorted(clusters_raw, key=lambda x: -int(x["photo_count"])):
 # ── rebuild trips with coordinates ───────────────────────────────────────────
 trips = []
 for t in trips_raw:
-    cid = t.get("cluster_id", "")
-    co  = centroid.get(cid, {})
+    cid   = t.get("cluster_id", "")
+    co    = centroid.get(cid, {})
+    lat   = co.get("lat")
+    lon   = co.get("lon")
+    metro = nearest_metro(lat, lon)
+    city  = metro or t["city"]
+    state = t.get("state", "")
+    country = t["country"]
+    if metro:
+        dest = f"{metro}, {state}, {country}" if state else f"{metro}, {country}"
+    else:
+        dest = t["place_label"]
     trips.append({
         "cluster_id":  cid,
-        "destination": t["place_label"],
-        "city":        t["city"],
-        "country":     t["country"],
+        "destination": dest,
+        "city":        city,
+        "country":     country,
         "start":       t["start_date"],
         "end":         t["end_date"],
         "days":        int(t["days"]),
-        "lat":         co.get("lat"),
-        "lon":         co.get("lon"),
+        "lat":         lat,
+        "lon":         lon,
     })
 
 data["places_visited"] = places
@@ -341,7 +356,7 @@ function persist(d){{
 }}
 
 function ann(){{ return NOTES }}
-function tripKey(t){{ return t.start+'_'+t.city }}
+function tripKey(t){{ return t.start+'_'+(t.cluster_id||t.city) }}
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let sbTab='trips', selTrip=null, selCity=null, dTab='journal';
