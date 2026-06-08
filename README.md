@@ -45,7 +45,7 @@ This only copies metadata (GPS, timestamps, filenames) — not your actual photo
 ## Running the pipeline
 
 ```bash
-python3 travel_pipeline_db.py \
+python3 src/travel_pipeline_db.py \
   --db-path photos_db.sqlite \
   --home "41.6418,-80.1512" \
   --year 2026 \
@@ -63,10 +63,10 @@ python3 travel_pipeline_db.py \
 
 ```bash
 # Regenerate dashboard HTML from latest output
-python3 generate_dashboard.py
+python3 src/generate_dashboard.py
 
 # Start the local server (opens browser automatically)
-python3 server.py
+python3 src/server.py
 ```
 
 Then open **http://localhost:8765**
@@ -81,7 +81,7 @@ Notes are saved to `notes.json` on disk.
 
 ## Configuration
 
-Key parameters at the top of `travel_pipeline_db.py`:
+Key parameters at the top of `src/travel_pipeline_db.py`:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -93,9 +93,9 @@ Key parameters at the top of `travel_pipeline_db.py`:
 ## Architecture
 
 ```
-Photos.sqlite (read-only copy)
-    ↓ travel_pipeline_db.py
-clusters.csv + trips.csv + journeys.csv + ...
-    ↓ generate_dashboard.py
-travel_dashboard.html  ←→  server.py  ←→  notes.json
+photos_db.sqlite  (read-only copy, gitignored)
+    ↓  src/travel_pipeline_db.py
+output/clusters.csv + trips.csv + journeys.csv + ...
+    ↓  src/generate_dashboard.py
+output/travel_dashboard.html  ←→  src/server.py  ←→  notes.json
 ```

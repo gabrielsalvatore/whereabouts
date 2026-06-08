@@ -9,11 +9,11 @@ import json
 import math
 from pathlib import Path
 
-BASE      = Path(__file__).parent
-DATA_PATH = BASE / "output" / "travel_analysis.json"
-CLUS_PATH = BASE / "output" / "clusters.csv"
-TRIP_PATH = BASE / "output" / "trips.csv"
-OUT_PATH  = BASE / "output" / "travel_dashboard.html"
+ROOT      = Path(__file__).parent.parent   # travel-tracker/
+DATA_PATH = ROOT / "output" / "travel_analysis.json"
+CLUS_PATH = ROOT / "output" / "clusters.csv"
+TRIP_PATH = ROOT / "output" / "trips.csv"
+OUT_PATH  = ROOT / "output" / "travel_dashboard.html"
 
 # ── read base analysis JSON ───────────────────────────────────────────────────
 with open(DATA_PATH) as f:
