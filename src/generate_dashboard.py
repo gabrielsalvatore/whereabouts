@@ -372,6 +372,7 @@ textarea:focus,input[type=text]:focus{{border-color:var(--accent)}}
       <div class="d-tabs">
         <button class="d-tab on" onclick="setDTab('journal')">Journal</button>
         <button class="d-tab"    onclick="setDTab('lessons')">Lessons</button>
+        <button class="d-tab"    onclick="setDTab('companions')" id="d-tab-with">With</button>
         <button class="d-tab"    onclick="setDTab('people')" id="d-tab-people">People</button>
       </div>
     </div>
@@ -550,7 +551,7 @@ function renderTripsSB(){{
     mTrips.forEach(t=>{{
       const k=tripKey(t), isOn=selTrip&&tripKey(selTrip)===k;
       const ta=a.trips[k]||{{}};
-      const hasNote=(Array.isArray(ta.journal)?ta.journal.length:!!ta.journal)||(ta.lessons&&ta.lessons.length);
+      const hasNote=(Array.isArray(ta.journal)?ta.journal.length:!!ta.journal)||(ta.lessons&&ta.lessons.length)||(ta.companions&&ta.companions.length);
       h+=`<div class="t-item ${{isOn?'on':''}}" id="tr-${{k}}">
         <div class="t-dot" style="cursor:pointer" onclick="selTByKey('${{k}}')"></div>
         <div class="t-info" style="cursor:pointer;flex:1;min-width:0" onclick="selTByKey('${{k}}')">
@@ -786,13 +787,15 @@ function openDetail(){{
   document.getElementById('d-sub').textContent=
     `${{fdate(t.start)}}${{t.start!==t.end?' → '+fdate(t.end):''}} · ${{t.days}} day${{t.days>1?'s':''}} · ${{t.country}}`;
 
-  // update people tab badge
+  // update tab badges
+  const companions=ta.companions||[];
+  document.getElementById('d-tab-with').textContent=companions.length?`With (${{companions.length}})`:'With';
   const ptab=document.getElementById('d-tab-people');
   ptab.textContent=people.length?`People (${{people.length}})`:'People';
 
   // sync tab highlights
   document.querySelectorAll('.d-tab').forEach((el,i)=>el.classList.toggle('on',
-    (i===0&&dTab==='journal')||(i===1&&dTab==='lessons')||(i===2&&dTab==='people')));
+    (i===0&&dTab==='journal')||(i===1&&dTab==='lessons')||(i===2&&dTab==='companions')||(i===3&&dTab==='people')));
 
   document.getElementById('d-body').innerHTML=renderDTab(dTab,ta,people,t);
   document.getElementById('detail').classList.add('open');
@@ -879,6 +882,7 @@ function renderDTab(tab,ta,people,t){{
     </div></div>`;
   }}
 
+  if(tab==='companions') return renderCompanionsTab(ta.companions||[]);
   if(tab==='people') return renderPeopleTab(people,t.city);
   return '';
 }}
@@ -967,6 +971,55 @@ function rmLesson(idx){{
   document.getElementById('l-list').innerHTML=a.trips[k].lessons.map((l,i)=>`
     <div class="lesson"><span class="l-bullet">◆</span><span class="l-text">${{esc(l)}}</span>
     <button class="btn btn-d" onclick="rmLesson(${{i}})">✕</button></div>`).join('');
+  renderSB();
+}}
+
+// ── Travel companions ──────────────────────────────────────────────────────────
+function _cmpListHTML(companions){{
+  return companions.map((c,i)=>`
+    <div class="lesson">
+      <div style="flex:1">
+        <div style="font-weight:500">${{esc(c.name)}}</div>
+        ${{c.note?`<div style="font-size:12px;color:var(--muted);margin-top:2px">${{esc(c.note)}}</div>`:''}}
+      </div>
+      <button class="btn btn-d" onclick="rmCompanion(${{i}})">✕</button>
+    </div>`).join('');
+}}
+function renderCompanionsTab(companions){{
+  return `<div class="card">
+    <div class="card-title">Traveled with</div>
+    ${{companions.length===0?'<div style="color:var(--muted);font-size:13px;padding:4px 0 10px">Who came on this trip?</div>':''}}
+    <div id="cmp-list">${{_cmpListHTML(companions)}}</div>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px">
+      <input type="text" id="cmp-name" placeholder="Name"
+        onkeydown="if(event.key==='Enter')addCompanion()">
+      <input type="text" id="cmp-note" placeholder="Note (optional)"
+        onkeydown="if(event.key==='Enter')addCompanion()">
+      <button class="btn btn-p" onclick="addCompanion()">Add</button>
+    </div>
+  </div>`;
+}}
+function addCompanion(){{
+  const nameEl=document.getElementById('cmp-name');
+  const name=nameEl.value.trim(); if(!name) return;
+  const note=document.getElementById('cmp-note').value.trim();
+  const k=tripKey(selTrip), a=ann();
+  a.trips[k]=a.trips[k]||{{}};
+  a.trips[k].companions=a.trips[k].companions||[];
+  a.trips[k].companions.push({{id:'cmp_'+Date.now(),name,note}});
+  persist(a);
+  nameEl.value=''; document.getElementById('cmp-note').value=''; nameEl.focus();
+  document.getElementById('cmp-list').innerHTML=_cmpListHTML(a.trips[k].companions);
+  const c=a.trips[k].companions;
+  document.getElementById('d-tab-with').textContent=c.length?`With (${{c.length}})`:'With';
+  renderSB();
+}}
+function rmCompanion(idx){{
+  const k=tripKey(selTrip), a=ann();
+  a.trips[k].companions.splice(idx,1); persist(a);
+  document.getElementById('cmp-list').innerHTML=_cmpListHTML(a.trips[k].companions);
+  const c=a.trips[k].companions;
+  document.getElementById('d-tab-with').textContent=c.length?`With (${{c.length}})`:'With';
   renderSB();
 }}
 
