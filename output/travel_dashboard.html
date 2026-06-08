@@ -206,8 +206,11 @@ async function initNotes(){
   try{
     const r = await fetch('/api/notes');
     if(r.ok) NOTES = await r.json();
-    NOTES.trips  = NOTES.trips  || {};
-    NOTES.people = NOTES.people || {};
+    NOTES.trips        = NOTES.trips        || {};
+    NOTES.people       = NOTES.people       || {};
+    NOTES.trip_deleted = NOTES.trip_deleted || [];
+    NOTES.trip_renamed = NOTES.trip_renamed || {};
+    NOTES.trip_added   = NOTES.trip_added   || [];
   } catch(e){ console.warn('Server not reachable; notes will not persist.', e) }
 }
 
@@ -219,6 +222,20 @@ function persist(d){
 
 function ann(){ return NOTES }
 function tripKey(t){ return t.start+'_'+(t.cluster_id||t.city) }
+
+let _tripsById = {};
+function effectiveTrips(){
+  const a=ann();
+  const deleted=new Set(a.trip_deleted||[]);
+  const renamed=a.trip_renamed||{};
+  const base=DATA.trips
+    .filter(t=>!deleted.has(tripKey(t)))
+    .map(t=>{ const k=tripKey(t); return renamed[k]?{...t,destination:renamed[k]}:t; });
+  const all=[...base,...(a.trip_added||[])].sort((a,b)=>a.start.localeCompare(b.start));
+  _tripsById={};
+  all.forEach(t=>{ _tripsById[tripKey(t)]=t; });
+  return all;
+}
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let sbTab='trips', selTrip=null, selCity=null, dTab='journal';
@@ -259,8 +276,8 @@ function onMarkerClick(cid){
     const place=DATA.places_visited.find(p=>p.cluster_id===cid);
     if(place) selC(place.metro||place.city);
   } else {
-    const idx=DATA.trips.findIndex(t=>t.cluster_id===cid);
-    if(idx>=0) selT(idx);
+    const trip=Object.values(_tripsById).find(t=>t.cluster_id===cid);
+    if(trip) selT(trip);
   }
 }
 
@@ -320,31 +337,121 @@ function renderSB(){ sbTab==='trips'?renderTripsSB():renderPeopleSB() }
 
 function renderTripsSB(){
   const a=ann();
+  const trips=effectiveTrips();
   const groups={};
-  DATA.trips.forEach((t,i)=>{
+  trips.forEach(t=>{
     const d=new Date(t.start+'T12:00:00');
-    const k=d.toLocaleString('en-US',{month:'long',year:'numeric'});
-    if(!groups[k]) groups[k]=[];
-    groups[k].push({...t,_i:i});
+    const mo=d.toLocaleString('en-US',{month:'long',year:'numeric'});
+    if(!groups[mo]) groups[mo]=[];
+    groups[mo].push(t);
   });
-  let h='';
-  for(const [mo,trips] of Object.entries(groups)){
+  let h=`
+  <div style="padding:8px 10px 4px;display:flex;justify-content:flex-end">
+    <button class="btn btn-p" style="padding:5px 10px;font-size:12px" onclick="showAddTrip()">+ Add</button>
+  </div>
+  <div id="add-trip-wrap" style="display:none;padding:8px 10px;background:var(--card);margin:0 8px 8px;border-radius:8px;border:1px solid var(--border)">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600">New trip</div>
+    <input type="text" id="at-dest" placeholder="City / destination" style="margin-bottom:6px">
+    <input type="text" id="at-country" placeholder="Country code (e.g. US, BR, PR)" style="margin-bottom:6px">
+    <div style="display:flex;gap:6px;margin-bottom:8px">
+      <input type="date" id="at-start" style="flex:1">
+      <input type="date" id="at-end" style="flex:1">
+    </div>
+    <div style="display:flex;gap:6px">
+      <button class="btn btn-p" style="flex:1;font-size:12px" onclick="saveAddTrip()">Save</button>
+      <button class="btn btn-g" style="font-size:12px" onclick="hideAddTrip()">Cancel</button>
+    </div>
+  </div>`;
+  for(const [mo,mTrips] of Object.entries(groups)){
     h+=`<div class="m-label">${mo}</div>`;
-    trips.forEach(t=>{
+    mTrips.forEach(t=>{
       const k=tripKey(t), isOn=selTrip&&tripKey(selTrip)===k;
       const ta=a.trips[k]||{};
-      const hasNote=ta.journal||(ta.lessons&&ta.lessons.length);
-      h+=`<div class="t-item ${isOn?'on':''}" onclick="selT(${t._i})">
-        <div class="t-dot"></div>
-        <div class="t-info">
-          <div class="t-city">${flag(t.country)} ${esc(t.city)}</div>
+      const hasNote=(Array.isArray(ta.journal)?ta.journal.length:!!ta.journal)||(ta.lessons&&ta.lessons.length);
+      h+=`<div class="t-item ${isOn?'on':''}" id="tr-${k}">
+        <div class="t-dot" style="cursor:pointer" onclick="selTByKey('${k}')"></div>
+        <div class="t-info" style="cursor:pointer;flex:1;min-width:0" onclick="selTByKey('${k}')">
+          <div class="t-city">${flag(t.country)} ${esc(t.destination||t.city)}</div>
           <div class="t-sub">${fdate(t.start)}${t.start!==t.end?' → '+fdate(t.end):''} · ${t.days}d</div>
         </div>
         ${hasNote?'<span class="t-note">📝</span>':''}
+        <button class="btn btn-g" style="padding:3px 6px;font-size:11px;flex-shrink:0" title="Edit" onclick="event.stopPropagation();showEditTrip('${k}')">✎</button>
+        <button class="btn btn-d" style="padding:3px 6px;font-size:11px;flex-shrink:0" title="Delete" onclick="event.stopPropagation();deleteTrip('${k}')">✕</button>
       </div>`;
     });
   }
   document.getElementById('sb-list').innerHTML=h;
+}
+
+function selTByKey(k){ const t=_tripsById[k]; if(t) selT(t); }
+
+function showAddTrip(){
+  document.getElementById('add-trip-wrap').style.display='block';
+  document.getElementById('at-dest').focus();
+}
+function hideAddTrip(){ document.getElementById('add-trip-wrap').style.display='none'; }
+function saveAddTrip(){
+  const dest=document.getElementById('at-dest').value.trim();
+  const country=(document.getElementById('at-country').value.trim()||'US').toUpperCase();
+  const start=document.getElementById('at-start').value;
+  const end=document.getElementById('at-end').value||start;
+  if(!dest||!start){ alert('Destination and start date are required.'); return; }
+  const days=Math.max(1,Math.round((new Date(end)-new Date(start))/(86400000))+1);
+  const trip={
+    cluster_id:'custom_'+Date.now(), destination:dest, city:dest.split(',')[0].trim(),
+    country, start, end, days, lat:null, lon:null
+  };
+  const a=ann(); a.trip_added=[...(a.trip_added||[]),trip]; persist(a);
+  hideAddTrip(); renderSB(); selT(trip);
+}
+
+function showEditTrip(k){
+  const t=_tripsById[k]; if(!t) return;
+  const row=document.getElementById('tr-'+k); if(!row) return;
+  row.innerHTML=`
+    <div style="flex:1;padding:2px 0">
+      <input type="text" id="et-dest-${k}" value="${esc(t.destination||t.city)}" style="margin-bottom:4px"
+        onkeydown="if(event.key==='Enter')saveEditTrip('${k}');if(event.key==='Escape')renderSB()">
+      <div style="display:flex;gap:4px">
+        <input type="date" id="et-start-${k}" value="${t.start}" style="flex:1;font-size:11px">
+        <input type="date" id="et-end-${k}" value="${t.end}" style="flex:1;font-size:11px">
+      </div>
+    </div>
+    <button class="btn btn-p" style="padding:4px 8px;font-size:11px;flex-shrink:0" onclick="saveEditTrip('${k}')">Save</button>
+    <button class="btn btn-g" style="padding:4px 8px;font-size:11px;flex-shrink:0" onclick="renderSB()">✕</button>`;
+  document.getElementById('et-dest-'+k).select();
+}
+function saveEditTrip(k){
+  const dest=document.getElementById('et-dest-'+k)?.value.trim();
+  const start=document.getElementById('et-start-'+k)?.value;
+  const end=document.getElementById('et-end-'+k)?.value;
+  if(!dest) return;
+  const a=ann();
+  // check if custom trip or base trip
+  const isCustom=(a.trip_added||[]).some(t=>tripKey(t)===k);
+  if(isCustom){
+    const idx=(a.trip_added||[]).findIndex(t=>tripKey(t)===k);
+    if(idx>=0){
+      const days=Math.max(1,Math.round((new Date(end)-new Date(start))/(86400000))+1);
+      a.trip_added[idx]={...a.trip_added[idx],destination:dest,city:dest.split(',')[0].trim(),start,end,days};
+    }
+  } else {
+    a.trip_renamed=a.trip_renamed||{};
+    a.trip_renamed[k]=dest;
+  }
+  persist(a); renderSB();
+  if(selTrip&&tripKey(selTrip)===k){ effectiveTrips(); selT(_tripsById[k]||selTrip); openDetail(); }
+}
+function deleteTrip(k){
+  const t=_tripsById[k];
+  if(!confirm(`Remove "${t?.destination||t?.city}"?`)) return;
+  const a=ann();
+  const isCustom=(a.trip_added||[]).some(t=>tripKey(t)===k);
+  if(isCustom) a.trip_added=(a.trip_added||[]).filter(t=>tripKey(t)!==k);
+  else { a.trip_deleted=[...(a.trip_deleted||[]),k]; }
+  persist(a);
+  if(selTrip&&tripKey(selTrip)===k){ selTrip=null; closeDetail(); }
+  renderSB();
 }
 
 // ── People sidebar: user-managed location list ────────────────────────────────
@@ -471,8 +578,8 @@ function deleteLoc(idx){
 }
 
 // ── Selection ─────────────────────────────────────────────────────────────────
-function selT(idx){
-  selTrip=DATA.trips[idx]; dTab='journal';
+function selT(trip){
+  selTrip=trip; dTab='journal';
   // switch sidebar to trips tab if needed
   if(sbTab!=='trips'){ sbTab='trips'; document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',i===0)); showAllMarkers(); }
   renderSB();
@@ -552,15 +659,30 @@ function setDTab(t){
 
 // ── Detail tab renderers ──────────────────────────────────────────────────────
 function renderDTab(tab,ta,people,t){
-  if(tab==='journal') return `
-  <div class="card">
-    <div class="card-title">Journal Entry</div>
-    <textarea id="j-input" rows="12" placeholder="What happened? How did it feel? What surprised you…">${esc(ta.journal||'')}</textarea>
-    <div style="margin-top:10px;display:flex;align-items:center">
-      <button class="btn btn-p" onclick="saveJournal()">Save</button>
-      <span class="flash" id="flash">✓ Saved to file</span>
-    </div>
-  </div>`;
+  if(tab==='journal'){
+    // migrate old string format → array
+    const raw=ta.journal;
+    const entries=Array.isArray(raw)?raw:(raw?[{text:raw,date:''}]:[]);
+    const entryHTML=entries.map((e,i)=>`
+      <div class="lesson">
+        <div style="flex:1">
+          ${e.date?`<div style="font-size:11px;color:var(--muted);margin-bottom:3px">${e.date}</div>`:''}
+          <div style="white-space:pre-wrap">${esc(e.text)}</div>
+        </div>
+        <button class="btn btn-d" onclick="rmEntry(${i})">✕</button>
+      </div>`).join('');
+    return `<div class="card">
+      <div class="card-title">Journal</div>
+      ${entries.length===0?'<div style="color:var(--muted);font-size:13px;padding:4px 0 10px">What happened? How did it feel? What surprised you…</div>':''}
+      <div id="j-list">${entryHTML}</div>
+      <div style="margin-top:10px">
+        <textarea id="j-input" rows="4" placeholder="Add an entry…"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-p" onclick="addEntry()">Add</button>
+        </div>
+      </div>
+    </div>`;
+  }
 
   if(tab==='lessons'){
     const ls=ta.lessons||[];
@@ -612,14 +734,36 @@ function renderPeopleTab(people,city){
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────────
-function saveJournal(){
+function _journalEntries(ta){
+  const raw=ta.journal;
+  return Array.isArray(raw)?raw:(raw?[{text:raw,date:''}]:[]);
+}
+function _renderJList(entries){
+  document.getElementById('j-list').innerHTML=entries.map((e,i)=>`
+    <div class="lesson">
+      <div style="flex:1">
+        ${e.date?`<div style="font-size:11px;color:var(--muted);margin-bottom:3px">${e.date}</div>`:''}
+        <div style="white-space:pre-wrap">${esc(e.text)}</div>
+      </div>
+      <button class="btn btn-d" onclick="rmEntry(${i})">✕</button>
+    </div>`).join('');
+}
+function addEntry(){
+  const inp=document.getElementById('j-input'), txt=inp.value.trim(); if(!txt) return;
   const k=tripKey(selTrip), a=ann();
   a.trips[k]=a.trips[k]||{};
-  a.trips[k].journal=document.getElementById('j-input').value;
-  persist(a);
-  const f=document.getElementById('flash'); f.classList.add('show');
-  setTimeout(()=>f.classList.remove('show'),2000);
-  renderSB();
+  const entries=_journalEntries(a.trips[k]);
+  entries.push({text:txt, date:new Date().toISOString().slice(0,10)});
+  a.trips[k].journal=entries;
+  persist(a); inp.value=''; inp.focus();
+  _renderJList(entries); renderSB();
+}
+function rmEntry(idx){
+  const k=tripKey(selTrip), a=ann();
+  const entries=_journalEntries(a.trips[k]);
+  entries.splice(idx,1);
+  a.trips[k].journal=entries;
+  persist(a); _renderJList(entries); renderSB();
 }
 
 function addLesson(){
@@ -672,7 +816,7 @@ function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').rep
 function flag(cc){ if(!cc) return ''; try{ return cc.toUpperCase().replace(/./g,c=>String.fromCodePoint(c.charCodeAt(0)+127397)) }catch{return ''} }
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
-initNotes().then(()=>{ initMap(); renderSB(); });
+initNotes().then(()=>{ effectiveTrips(); initMap(); renderSB(); });
 </script>
 </body>
 </html>
