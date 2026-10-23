@@ -328,6 +328,19 @@ textarea:focus,input[type=text]:focus{{border-color:var(--accent)}}
 .p-contact{{font-size:11px;color:var(--accent2);margin-top:2px}}
 .p-notes{{font-size:12px;color:var(--dim);margin-top:4px;line-height:1.4}}
 
+/* ── People redesign ── */
+.p-item{{display:flex;align-items:center;gap:9px;padding:7px 14px;cursor:pointer;transition:background .1s}}
+.p-item:hover{{background:rgba(99,102,241,.08)}}
+.p-item.on{{background:rgba(99,102,241,.14);border-left:2px solid var(--accent)}}
+.p-avatar-sm{{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}}
+.grp-tag{{display:inline-flex;align-items:center;gap:3px;background:rgba(99,102,241,.15);color:var(--accent2);font-size:11px;padding:3px 9px;border-radius:12px}}
+.badge{{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;white-space:nowrap}}
+.badge-g{{color:var(--green);background:rgba(34,197,94,.12)}}
+.badge-a{{color:#f59e0b;background:rgba(245,158,11,.12)}}
+.badge-r{{color:var(--red);background:rgba(239,68,68,.12)}}
+.pv-btn{{flex:1;padding:5px 0;font-size:11px;font-weight:600;cursor:pointer;border-radius:5px;transition:all .15s;border:1px solid var(--border);background:transparent;color:var(--muted)}}
+.pv-btn.on{{background:var(--accent);border-color:var(--accent);color:#fff}}
+
 /* add-form */
 .add-form{{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:13px;margin-bottom:12px;display:none}}
 .add-form.open{{display:block}}
@@ -395,6 +408,7 @@ async function initNotes(){{
     NOTES.trip_deleted = NOTES.trip_deleted || [];
     NOTES.trip_renamed = NOTES.trip_renamed || {{}};
     NOTES.trip_added   = NOTES.trip_added   || [];
+    if(migratePeople(NOTES)) persist(NOTES);
   }} catch(e){{ console.warn('Server not reachable; notes will not persist.', e) }}
 }}
 
@@ -422,7 +436,8 @@ function effectiveTrips(){{
 }}
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let sbTab='trips', selTrip=null, selCity=null, dTab='journal';
+let sbTab='trips', selTrip=null, selCity=null, selPerson=null, dTab='journal';
+let peopleView='list', _pSearchQ='', _addPersonDefaultCity='';
 
 // ── Leaflet map ───────────────────────────────────────────────────────────────
 let leafMap, markersByCluster={{}}, activeMarker=null;
@@ -458,7 +473,7 @@ function initMap(){{
 function onMarkerClick(cid){{
   if(sbTab==='people'){{
     const place=DATA.places_visited.find(p=>p.cluster_id===cid);
-    if(place) selC(place.metro||place.city);
+    if(place) openCityPeoplePanel(place.metro||place.city);
   }} else {{
     const trip=Object.values(_tripsById).find(t=>t.cluster_id===cid);
     if(trip) selT(trip);
@@ -477,14 +492,13 @@ function highlightMarker(cid){{
 }}
 
 function filterMapForPeople(){{
-  const locs=(ann().locations)||[];
+  const homeCities=new Set(allPeople().map(p=>p.home_city).filter(Boolean));
   Object.values(markersByCluster).forEach(m=>{{ if(leafMap.hasLayer(m)) leafMap.removeLayer(m); }});
-  // one dot per city: pick the most-photographed place for each location label
   const bestByLoc={{}};
   DATA.places_visited.forEach(place=>{{
     if(place.lat==null||place.lon==null) return;
     const label=place.metro||place.city;
-    if(!locs.includes(label)) return;
+    if(!homeCities.has(label)) return;
     if(!bestByLoc[label]||place.photos>bestByLoc[label].photos) bestByLoc[label]=place;
   }});
   const bounds=[];
@@ -510,11 +524,10 @@ function showAllMarkers(){{
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function switchTab(t){{
-  sbTab=t;
+  sbTab=t; selPerson=null;
   document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',(i===0&&t==='trips')||(i===1&&t==='people')));
-  renderSB();  // seeds locations if first visit
-  if(t==='people') filterMapForPeople();
-  else showAllMarkers();
+  if(t==='people') setPeopleView(peopleView||'list');
+  else {{ showAllMarkers(); renderSB(); }}
 }}
 
 function renderSB(){{ sbTab==='trips'?renderTripsSB():renderPeopleSB() }}
@@ -638,127 +651,72 @@ function deleteTrip(k){{
   renderSB();
 }}
 
-// ── People sidebar: user-managed location list ────────────────────────────────
-// Locations are stored in NOTES.locations (ordered array of label strings).
-// On first load they are seeded from places_visited: top city per state,
-// so you get "Honolulu" not "Waimanalo Beach", "São Paulo" not "Guarulhos", etc.
-
-function seedLocations(a){{
-  const seen=new Set(), locations=[];
-  DATA.places_visited.forEach(p=>{{
-    if(!p.metro) return;  // skip small towns with no metro mapping
-    if(!seen.has(p.metro)){{ seen.add(p.metro); locations.push(p.metro); }}
-  }});
-  a.locations=locations;
-}}
+// ── People sidebar ────────────────────────────────────────────────────────────
 
 function renderPeopleSB(){{
-  const a=ann();
-  if(!a.locations||a.locations.length===0) {{ seedLocations(a); persist(a); }}
+  const all=allPeople();
+  const q=_pSearchQ||'';
+  const filtered=q?all.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.home_city||'').toLowerCase().includes(q.toLowerCase())):all;
+  filtered.sort((a,b)=>{{
+    const la=personLastSeen(a),lb=personLastSeen(b);
+    if(!la&&!lb) return a.name.localeCompare(b.name);
+    if(!la) return 1; if(!lb) return -1;
+    return lb.date.localeCompare(la.date);
+  }});
+
+  const listHTML=filtered.map(p=>{{
+    const ls=personLastSeen(p);
+    const isOn=selPerson===p.id;
+    const sub=(p.home_city||'')+((p.groups||[]).slice(0,2).map(g=>' · '+g).join(''));
+    return `<div class="p-item ${{isOn?'on':''}}" onclick="openPersonDetail('${{esc(p.id)}}')">
+      <div class="p-avatar-sm">${{p.name[0].toUpperCase()}}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${{esc(p.name)}}</div>
+        <div style="font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${{esc(sub)}}</div>
+      </div>
+      ${{ls?recencyBadge(ls):''}}
+    </div>`;
+  }}).join('');
 
   let h=`
   <div style="padding:8px 10px 4px;display:flex;gap:6px">
-    <input class="sb-search" id="loc-search" placeholder="Search…" oninput="filterLocs(this.value)" style="flex:1">
-    <button class="btn btn-p" style="padding:6px 10px;font-size:12px" title="Add location" onclick="showAddLoc()">+</button>
+    <input class="sb-search" id="p-search" placeholder="Search people…" value="${{esc(q)}}"
+      oninput="_pSearchQ=this.value;renderPeopleSB()">
+    <button class="btn btn-p" style="padding:6px 10px;font-size:12px" title="Add person" onclick="showAddPersonForm()">+</button>
   </div>
-  <div id="add-loc-wrap" style="display:none;padding:0 10px 8px">
-    <input type="text" id="add-loc-inp" placeholder="Location name (e.g. Boston, Oahu…)"
-      onkeydown="if(event.key==='Enter')saveNewLoc();if(event.key==='Escape')hideAddLoc()">
-    <div style="display:flex;gap:6px;margin-top:6px">
-      <button class="btn btn-p" style="flex:1;font-size:12px" onclick="saveNewLoc()">Add</button>
-      <button class="btn btn-g" style="font-size:12px" onclick="hideAddLoc()">Cancel</button>
+  <div style="display:flex;gap:6px;padding:0 10px 8px">
+    <button class="pv-btn ${{peopleView==='list'?'on':''}}" onclick="setPeopleView('list')">List</button>
+    <button class="pv-btn ${{peopleView==='map'?'on':''}}" onclick="setPeopleView('map')">Map</button>
+  </div>
+  <div id="add-person-wrap" style="display:none;padding:10px 10px 12px;background:var(--card);margin:0 8px 8px;border-radius:8px;border:1px solid var(--border)">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600">New person</div>
+    <input type="text" id="np-name" placeholder="Name *" style="margin-bottom:6px">
+    <input type="text" id="np-city" placeholder="City (e.g. Los Angeles)" style="margin-bottom:6px">
+    <input type="text" id="np-contact" placeholder="Contact (@handle or email)" style="margin-bottom:6px">
+    <input type="text" id="np-howmet" placeholder="How you met…" style="margin-bottom:6px">
+    <input type="text" id="np-groups" placeholder="Groups (comma separated)" style="margin-bottom:8px">
+    <div style="display:flex;gap:6px">
+      <button class="btn btn-p" style="flex:1;font-size:12px" onclick="saveNewPerson()">Save</button>
+      <button class="btn btn-g" style="font-size:12px" onclick="hideAddPersonForm()">Cancel</button>
     </div>
   </div>
-  <div id="loc-list">`;
+  <div id="people-sb-list">`;
 
-  a.locations.forEach((loc,idx)=>{{
-    const cnt=(a.people[loc]||[]).length;
-    const isOn=selCity===loc;
-    h+=`<div class="c-item ${{isOn?'on':''}}" id="loc-${{idx}}">
-      <div style="flex:1;cursor:pointer;min-width:0" onclick="selC('${{esc(loc)}}')">
-        <div class="c-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
-          ${{esc(loc)}}
-        </div>
-        <div class="c-country">${{cnt}} contact${{cnt!==1?'s':''}}</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1px;flex-shrink:0">
-        ${{cnt?`<span class="c-badge" style="margin-right:4px">${{cnt}}</span>`:''}}
-        <button class="btn btn-d" style="padding:3px 6px;font-size:13px" title="Rename"
-          onclick="startRename(${{idx}},event)">✎</button>
-        <button class="btn btn-d" style="padding:3px 6px;font-size:13px" title="Remove"
-          onclick="deleteLoc(${{idx}})">✕</button>
-      </div>
-    </div>`;
-  }});
+  if(filtered.length===0&&!q)
+    h+=`<div style="text-align:center;padding:32px 16px;color:var(--muted)">👤<br><br>Add people to track your connections</div>`;
+  else if(filtered.length===0)
+    h+=`<div style="padding:16px 14px;color:var(--muted);font-size:13px">No results</div>`;
+  else h+=listHTML;
 
   h+='</div>';
   document.getElementById('sb-list').innerHTML=h;
 }}
 
-function filterLocs(q){{
-  const ql=q.toLowerCase();
-  document.querySelectorAll('#loc-list .c-item').forEach(el=>{{
-    const name=el.querySelector('.c-name');
-    if(name) el.style.display=name.textContent.toLowerCase().includes(ql)?'':'none';
-  }});
-}}
-
-function showAddLoc(){{
-  document.getElementById('add-loc-wrap').style.display='block';
-  document.getElementById('add-loc-inp').focus();
-}}
-function hideAddLoc(){{
-  document.getElementById('add-loc-wrap').style.display='none';
-  document.getElementById('add-loc-inp').value='';
-}}
-function saveNewLoc(){{
-  const val=document.getElementById('add-loc-inp').value.trim();
-  if(!val) return;
-  const a=ann();
-  if(!a.locations.includes(val)) a.locations.push(val);
-  persist(a); hideAddLoc(); renderSB(); filterMapForPeople(); selC(val);
-}}
-
-function startRename(idx,evt){{
-  evt.stopPropagation();
-  const a=ann(), loc=a.locations[idx];
-  const el=document.getElementById('loc-'+idx);
-  el.innerHTML=`
-    <input type="text" id="ren-inp" value="${{esc(loc)}}" style="flex:1"
-      onkeydown="if(event.key==='Enter')saveRename(${{idx}});if(event.key==='Escape')renderSB()">
-    <button class="btn btn-p" style="padding:4px 9px;font-size:12px" onclick="saveRename(${{idx}})">Save</button>
-    <button class="btn btn-g" style="padding:4px 9px;font-size:12px" onclick="renderSB()">✕</button>`;
-  document.getElementById('ren-inp').select();
-}}
-
-function saveRename(idx){{
-  const newName=document.getElementById('ren-inp').value.trim();
-  if(!newName) return;
-  const a=ann(), oldName=a.locations[idx];
-  if(newName!==oldName){{
-    // Move contacts to new name
-    if(a.people[oldName]){{
-      a.people[newName]=[...(a.people[newName]||[]),...a.people[oldName]];
-      delete a.people[oldName];
-    }}
-    a.locations[idx]=newName;
-    if(selCity===oldName) selCity=newName;
-  }}
-  persist(a); renderSB(); filterMapForPeople();
-  if(selCity===newName) openCityDetail(newName);
-}}
-
-function deleteLoc(idx){{
-  const a=ann(), loc=a.locations[idx];
-  const cnt=(a.people[loc]||[]).length;
-  const msg=cnt
-    ?`Remove "${{loc}}"? This will delete ${{cnt}} contact${{cnt!==1?'s':''}}.`
-    :`Remove "${{loc}}"?`;
-  if(!confirm(msg)) return;
-  a.locations.splice(idx,1);
-  delete a.people[loc];
-  if(selCity===loc){{ selCity=null; closeDetail(); }}
-  persist(a); renderSB(); filterMapForPeople();
+function setPeopleView(v){{
+  peopleView=v;
+  if(v==='map') filterMapForPeople();
+  else showAllMarkers();
+  renderPeopleSB();
 }}
 
 // ── Selection ─────────────────────────────────────────────────────────────────
@@ -781,50 +739,37 @@ function selC(city){{
 function openDetail(){{
   const t=selTrip, k=tripKey(t), a=ann();
   const ta=a.trips[k]||{{journal:'',lessons:[]}};
-  const people=(a.people[t.city]||[]);
+
+  // restore trip tabs
+  document.querySelectorAll('.d-tab').forEach(el=>el.style.display='');
 
   document.getElementById('d-title').textContent=`${{flag(t.country)}} ${{t.destination}}`;
   document.getElementById('d-sub').textContent=
     `${{fdate(t.start)}}${{t.start!==t.end?' → '+fdate(t.end):''}} · ${{t.days}} day${{t.days>1?'s':''}} · ${{t.country}}`;
 
-  // update tab badges
   const companions=ta.companions||[];
   document.getElementById('d-tab-with').textContent=companions.length?`With (${{companions.length}})`:'With';
-  const ptab=document.getElementById('d-tab-people');
-  ptab.textContent=people.length?`People (${{people.length}})`:'People';
+  const pHere=peopleInCity(t.city);
+  document.getElementById('d-tab-people').textContent=pHere.length?`People (${{pHere.length}})`:'People';
 
-  // sync tab highlights
   document.querySelectorAll('.d-tab').forEach((el,i)=>el.classList.toggle('on',
     (i===0&&dTab==='journal')||(i===1&&dTab==='lessons')||(i===2&&dTab==='companions')||(i===3&&dTab==='people')));
 
-  document.getElementById('d-body').innerHTML=renderDTab(dTab,ta,people,t);
+  document.getElementById('d-body').innerHTML=renderDTab(dTab,ta,t);
   document.getElementById('detail').classList.add('open');
 }}
 
-function openCityDetail(city){{
-  const a=ann(), people=a.people[city]||[];
-
-  // Best place for this city: match on metro label or exact city, pick most-photographed
-  const place=DATA.places_visited
-    .filter(p=>(p.metro||p.city)===city)
-    .sort((a,b)=>b.photos-a.photos)[0]
-    ||DATA.places_visited.find(p=>p.city===city);
-  const country=place?.country||DATA.trips.find(t=>t.city===city)?.country||'';
-
+function openCityPeoplePanel(city){{
+  selCity=city; selTrip=null; selPerson=null;
+  const place=DATA.places_visited.filter(p=>(p.metro||p.city)===city).sort((a,b)=>b.photos-a.photos)[0];
+  const country=place?.country||'';
   document.getElementById('d-title').textContent=`${{flag(country)}} ${{city}}`;
-  document.getElementById('d-sub').textContent=country;
-
-  // show only people tab for city view
-  document.querySelectorAll('.d-tab').forEach((el,i)=>el.classList.toggle('on',i===2));
-  document.getElementById('d-tab-people').textContent=people.length?`People (${{people.length}})`:'People';
-  document.getElementById('d-body').innerHTML=renderPeopleTab(people,city);
+  document.getElementById('d-sub').textContent=`People in ${{city}}`;
+  document.querySelectorAll('.d-tab').forEach(el=>el.style.display='none');
+  document.getElementById('d-body').innerHTML=renderPeopleInCityTab(city);
   document.getElementById('detail').classList.add('open');
-
-  // Pan map to the city's marker
-  if(place?.lat&&place?.lon){{
-    highlightMarker(place.cluster_id);
-    leafMap.panTo([place.lat,place.lon],{{animate:true,duration:.5}});
-  }}
+  if(place?.lat&&place?.lon){{ highlightMarker(place.cluster_id); leafMap.panTo([place.lat,place.lon],{{animate:true,duration:.5}}); }}
+  renderSB();
 }}
 
 function closeDetail(){{
@@ -833,18 +778,18 @@ function closeDetail(){{
     activeMarker.setStyle({{fillColor:'#6366f1',color:'rgba(255,255,255,0.5)',weight:1.5,fillOpacity:0.72}});
     activeMarker=null;
   }}
-  selTrip=null; selCity=null;
+  selTrip=null; selCity=null; selPerson=null;
+  document.querySelectorAll('.d-tab').forEach(el=>el.style.display='');
   renderSB();
 }}
 
 function setDTab(t){{
   dTab=t;
   if(selTrip) openDetail();
-  else if(selCity) openCityDetail(selCity);
 }}
 
 // ── Detail tab renderers ──────────────────────────────────────────────────────
-function renderDTab(tab,ta,people,t){{
+function renderDTab(tab,ta,t){{
   if(tab==='journal'){{
     // migrate old string format → array
     const raw=ta.journal;
@@ -883,40 +828,31 @@ function renderDTab(tab,ta,people,t){{
   }}
 
   if(tab==='companions') return renderCompanionsTab(ta.companions||[]);
-  if(tab==='people') return renderPeopleTab(people,t.city);
+  if(tab==='people') return renderPeopleInCityTab(t.city);
   return '';
 }}
 
-function renderPeopleTab(people,city){{
-  const cards=people.map(p=>`
-  <div class="person">
-    <div class="p-avatar">${{p.name[0].toUpperCase()}}</div>
-    <div style="flex:1">
-      <div class="p-name">${{esc(p.name)}}</div>
-      ${{p.contact?`<div class="p-contact">${{esc(p.contact)}}</div>`:''}}
-      ${{p.notes?`<div class="p-notes">${{esc(p.notes)}}</div>`:''}}
-    </div>
-    <button class="btn btn-d" onclick="rmPerson('${{esc(city)}}','${{p.id}}')">✕</button>
-  </div>`).join('');
+function renderPeopleInCityTab(city){{
+  const people=peopleInCity(city);
+  const cards=people.map(p=>{{
+    const ls=personLastSeen(p);
+    return `<div class="person" style="cursor:pointer" onclick="openPersonDetail('${{esc(p.id)}}')">
+      <div class="p-avatar">${{p.name[0].toUpperCase()}}</div>
+      <div style="flex:1">
+        <div class="p-name">${{esc(p.name)}}</div>
+        ${{p.how_met?`<div class="p-notes">${{esc(p.how_met)}}</div>`:''}}
+        ${{p.contact?`<div class="p-contact">${{esc(p.contact)}}</div>`:''}}
+      </div>
+      ${{ls?recencyBadge(ls):''}}
+    </div>`;
+  }}).join('');
 
   return `
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
     <span style="font-size:12px;color:var(--muted)">People in ${{esc(city)}}</span>
-    <button class="btn btn-p" onclick="toggleForm('pf')">+ Add</button>
+    <button class="btn btn-p" onclick="showAddPersonForm('${{esc(city)}}')">+ Add</button>
   </div>
-  <div class="add-form" id="pf">
-    <div class="f-row">
-      <div class="f-col"><label class="f-label">Name *</label><input type="text" id="pf-name" placeholder="Full name"></div>
-      <div class="f-col"><label class="f-label">Contact</label><input type="text" id="pf-contact" placeholder="@handle or email"></div>
-    </div>
-    <div style="margin-bottom:9px"><label class="f-label">Notes</label>
-      <input type="text" id="pf-notes" placeholder="How you know them, what to catch up on…"></div>
-    <div style="display:flex;gap:8px">
-      <button class="btn btn-p" onclick="addPerson('${{esc(city)}}')">Save</button>
-      <button class="btn btn-g" onclick="toggleForm('pf')">Cancel</button>
-    </div>
-  </div>
-  ${{people.length===0?`<div style="text-align:center;padding:32px 0;color:var(--muted)">👤<br><br>No contacts for ${{esc(city)}} yet</div>`:''}}
+  ${{people.length===0?`<div style="text-align:center;padding:32px 0;color:var(--muted)">👤<br><br>No contacts for ${{esc(city)}} yet<br><span style="font-size:12px">Use the + button to add someone</span></div>`:''}}
   <div id="people-list">${{cards}}</div>`;
 }}
 
@@ -1025,31 +961,218 @@ function rmCompanion(idx){{
 
 function toggleForm(id){{ document.getElementById(id).classList.toggle('open') }}
 
-function addPerson(city){{
-  const name=document.getElementById('pf-name').value.trim(); if(!name) return;
-  const contact=document.getElementById('pf-contact').value.trim();
-  const notes=document.getElementById('pf-notes').value.trim();
-  const a=ann();
-  a.people[city]=a.people[city]||[];
-  a.people[city].push({{id:Date.now().toString(),name,contact,notes}});
-  // Register this city in the People sidebar if not already there
-  if(!a.locations) a.locations=[];
-  if(!a.locations.includes(city)) a.locations.push(city);
-  persist(a);
-  if(selTrip) openDetail(); else openCityDetail(city);
-  renderSB();
-}}
-
-function rmPerson(city,id){{
-  const a=ann(); a.people[city]=(a.people[city]||[]).filter(p=>p.id!==id); persist(a);
-  if(selTrip) openDetail(); else openCityDetail(city);
-  renderSB();
-}}
-
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function fdate(d){{ return new Date(d+'T12:00:00').toLocaleDateString('en-US',{{month:'short',day:'numeric'}}) }}
 function esc(s){{ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }}
 function flag(cc){{ if(!cc) return ''; try{{ return cc.toUpperCase().replace(/./g,c=>String.fromCodePoint(c.charCodeAt(0)+127397)) }}catch{{return ''}} }}
+
+// ── People model helpers ──────────────────────────────────────────────────────
+function migratePeople(a){{
+  const vals=Object.values(a.people||{{}});
+  if(!vals.length||!Array.isArray(vals[0])) return false;
+  const np={{}};
+  Object.entries(a.people).forEach(([city,contacts])=>{{
+    if(!Array.isArray(contacts)) return;
+    contacts.forEach(p=>{{
+      const pid='pid_'+(p.id||Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6));
+      np[pid]={{id:pid,name:p.name,home_city:city,contact:p.contact||'',notes:p.notes||'',groups:[],how_met:'',met_city:city,met_date:''}};
+    }});
+  }});
+  a.people=np;
+  return true;
+}}
+
+function allPeople(){{
+  return Object.values(ann().people||{{}}).filter(p=>p&&typeof p==='object'&&p.name);
+}}
+
+function personLastSeen(person){{
+  const a=ann(), nl=person.name.toLowerCase();
+  let latest=null;
+  Object.entries(a.trips||{{}}).forEach(([tk,td])=>{{
+    if(!td||!td.companions) return;
+    if(!td.companions.some(c=>c.name&&c.name.toLowerCase()===nl)) return;
+    const trip=_tripsById[tk]; if(!trip) return;
+    if(!latest||trip.end>latest.date) latest={{date:trip.end,city:trip.city,tripKey:tk}};
+  }});
+  return latest;
+}}
+
+function peopleInCity(city){{
+  return allPeople().filter(p=>p.home_city===city);
+}}
+
+function recencyBadge(ls){{
+  if(!ls) return '';
+  const days=Math.floor((Date.now()-new Date(ls.date+'T12:00:00'))/86400000);
+  const label=days<2?'recent':days<30?days+'d':days<365?Math.floor(days/30)+'mo':Math.floor(days/365)+'yr';
+  const cls=days<90?'badge-g':days<365?'badge-a':'badge-r';
+  return `<span class="badge ${{cls}}">${{label}}</span>`;
+}}
+
+function getTripsWithPerson(person){{
+  const a=ann(), nl=person.name.toLowerCase();
+  return effectiveTrips().filter(t=>{{
+    const td=a.trips[tripKey(t)];
+    return td&&td.companions&&td.companions.some(c=>c.name&&c.name.toLowerCase()===nl);
+  }}).sort((a,b)=>b.end.localeCompare(a.end));
+}}
+
+// ── Person detail panel ───────────────────────────────────────────────────────
+function openPersonDetail(pid){{
+  const a=ann(), p=a.people[pid]; if(!p) return;
+  selPerson=pid; selTrip=null; selCity=null;
+  document.querySelectorAll('.d-tab').forEach(el=>el.style.display='none');
+  document.getElementById('d-title').textContent=p.name;
+  document.getElementById('d-sub').textContent=p.home_city||'';
+  const ls=personLastSeen(p), trips=getTripsWithPerson(p);
+  document.getElementById('d-body').innerHTML=renderPersonDetail(p,ls,trips);
+  document.getElementById('detail').classList.add('open');
+  renderSB();
+  if(p.home_city){{
+    const place=DATA.places_visited.filter(pl=>(pl.metro||pl.city)===p.home_city).sort((a,b)=>b.photos-a.photos)[0];
+    if(place) {{ highlightMarker(place.cluster_id); leafMap.panTo([place.lat,place.lon],{{animate:true,duration:.5}}); }}
+  }}
+}}
+
+function renderPersonDetail(p,ls,trips){{
+  const groups=(p.groups||[]).map(g=>
+    `<span class="grp-tag">${{esc(g)}}<button class="btn btn-d" style="padding:1px 4px;font-size:10px;margin-left:2px" onclick="rmGroup('${{esc(p.id)}}','${{esc(g)}}')">✕</button></span>`
+  ).join('');
+
+  const tripsHTML=trips.length?trips.map(t=>
+    `<div style="padding:8px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:13px;font-weight:500">${{flag(t.country)}} ${{esc(t.city)}}</div>
+        <div style="font-size:11px;color:var(--muted)">${{fdate(t.start)}}${{t.start!==t.end?' → '+fdate(t.end):''}}</div>
+      </div>
+    </div>`
+  ).join(''):`<div style="color:var(--muted);font-size:13px;padding:8px 0">Not on any trips yet — add via the "With" tab on a trip</div>`;
+
+  return `
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <div class="p-avatar" style="width:44px;height:44px;font-size:17px;flex-shrink:0">${{p.name[0].toUpperCase()}}</div>
+      <div style="flex:1">
+        <div style="font-size:16px;font-weight:700;margin-bottom:2px">${{esc(p.name)}}</div>
+        ${{p.home_city?`<div style="font-size:12px;color:var(--muted)">${{esc(p.home_city)}}</div>`:''}}
+      </div>
+      ${{ls?recencyBadge(ls):''}}
+    </div>
+    ${{ls?`<div style="font-size:12px;color:var(--muted);margin-bottom:12px;padding:8px 10px;background:rgba(34,197,94,.06);border-radius:7px;border:1px solid rgba(34,197,94,.15)">Last seen in <b style="color:var(--text)">${{esc(ls.city)}}</b> · ${{fdate(ls.date)}}</div>`:''}}
+    <div style="display:grid;gap:6px;margin-bottom:14px">
+      ${{p.contact?`<div style="font-size:12px"><span style="color:var(--muted)">Contact</span> · <span style="color:var(--accent2)">${{esc(p.contact)}}</span></div>`:''}}
+      ${{p.how_met?`<div style="font-size:12px"><span style="color:var(--muted)">Met</span> · ${{esc(p.how_met)}}${{p.met_city?' in <b style="color:var(--text)">'+esc(p.met_city)+'</b>':''}}${{p.met_date?' · '+esc(p.met_date):''}}</div>`:''}}
+      ${{p.notes?`<div style="font-size:12px;color:var(--dim);line-height:1.5;border-top:1px solid var(--border);padding-top:8px;margin-top:4px">${{esc(p.notes)}}</div>`:''}}
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px">Groups</div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center" id="grp-tags">
+        ${{groups}}
+        <button class="btn btn-g" style="font-size:11px;padding:3px 9px" onclick="showAddGroup()">+ group</button>
+      </div>
+      <div id="add-grp-wrap" style="display:none;margin-top:7px;gap:6px">
+        <input type="text" id="grp-inp" placeholder="Group name…" style="flex:1;font-size:12px;padding:5px 9px"
+          onkeydown="if(event.key==='Enter')saveGroup('${{esc(p.id)}}');if(event.key==='Escape')hideAddGroup()">
+        <button class="btn btn-p" style="font-size:11px;padding:4px 9px" onclick="saveGroup('${{esc(p.id)}}')">Add</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px">
+      <button class="btn btn-g" style="flex:1;font-size:12px" onclick="showEditPerson('${{esc(p.id)}}')">Edit</button>
+      <button class="btn btn-d" style="font-size:12px" onclick="deletePerson('${{esc(p.id)}}')">Delete</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Trips together (${{trips.length}})</div>
+    ${{tripsHTML}}
+  </div>`;
+}}
+
+// ── Person CRUD ───────────────────────────────────────────────────────────────
+function showAddPersonForm(city){{
+  _addPersonDefaultCity=city||'';
+  if(sbTab!=='people'){{
+    sbTab='people';
+    document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('on',i===1));
+    setPeopleView('list');
+  }} else renderPeopleSB();
+  const w=document.getElementById('add-person-wrap');
+  if(w){{
+    w.style.display='block';
+    const ci=document.getElementById('np-city');
+    if(ci&&city) ci.value=city;
+    document.getElementById('np-name')?.focus();
+  }}
+}}
+function hideAddPersonForm(){{
+  const w=document.getElementById('add-person-wrap');
+  if(w){{w.style.display='none';['np-name','np-city','np-contact','np-howmet','np-groups'].forEach(id=>{{const el=document.getElementById(id);if(el)el.value='';}}); }}
+}}
+function saveNewPerson(){{
+  const name=document.getElementById('np-name')?.value.trim(); if(!name) return;
+  const city=document.getElementById('np-city')?.value.trim()||'';
+  const contact=document.getElementById('np-contact')?.value.trim()||'';
+  const howmet=document.getElementById('np-howmet')?.value.trim()||'';
+  const groupsRaw=document.getElementById('np-groups')?.value.trim()||'';
+  const groups=groupsRaw?groupsRaw.split(',').map(g=>g.trim()).filter(Boolean):[];
+  const a=ann(), pid='pid_'+Date.now();
+  a.people[pid]={{id:pid,name,home_city:city,contact,notes:'',groups,how_met:howmet,met_city:city,met_date:''}};
+  persist(a); hideAddPersonForm(); renderPeopleSB(); openPersonDetail(pid);
+}}
+
+function showEditPerson(pid){{
+  const a=ann(), p=a.people[pid]; if(!p) return;
+  document.getElementById('d-body').innerHTML=`
+  <div class="card">
+    <div class="card-title">Edit person</div>
+    <label class="f-label">Name</label><input type="text" id="ep-name" value="${{esc(p.name)}}" style="margin-bottom:8px">
+    <label class="f-label">City</label><input type="text" id="ep-city" value="${{esc(p.home_city||'')}}" style="margin-bottom:8px">
+    <label class="f-label">Contact</label><input type="text" id="ep-contact" value="${{esc(p.contact||'')}}" style="margin-bottom:8px">
+    <label class="f-label">How you met</label><input type="text" id="ep-howmet" value="${{esc(p.how_met||'')}}" style="margin-bottom:8px">
+    <label class="f-label">Notes</label><input type="text" id="ep-notes" value="${{esc(p.notes||'')}}" style="margin-bottom:12px">
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-p" style="flex:1" onclick="saveEditPerson('${{esc(pid)}}')">Save</button>
+      <button class="btn btn-g" onclick="openPersonDetail('${{esc(pid)}}')">Cancel</button>
+    </div>
+  </div>`;
+}}
+function saveEditPerson(pid){{
+  const a=ann(); if(!a.people[pid]) return;
+  a.people[pid]={{...a.people[pid],
+    name:document.getElementById('ep-name').value.trim()||a.people[pid].name,
+    home_city:document.getElementById('ep-city').value.trim(),
+    contact:document.getElementById('ep-contact').value.trim(),
+    how_met:document.getElementById('ep-howmet').value.trim(),
+    notes:document.getElementById('ep-notes').value.trim(),
+  }};
+  persist(a); openPersonDetail(pid); renderSB();
+}}
+function deletePerson(pid){{
+  const a=ann(), p=a.people[pid];
+  if(!p||!confirm(`Remove "${{p.name}}"?`)) return;
+  delete a.people[pid]; persist(a);
+  selPerson=null; closeDetail(); renderSB();
+}}
+
+// ── Group management ──────────────────────────────────────────────────────────
+function showAddGroup(){{
+  const w=document.getElementById('add-grp-wrap');
+  if(w){{ w.style.display='flex'; w.style.gap='6px'; document.getElementById('grp-inp')?.focus(); }}
+}}
+function hideAddGroup(){{
+  const w=document.getElementById('add-grp-wrap'); if(w) w.style.display='none';
+}}
+function saveGroup(pid){{
+  const inp=document.getElementById('grp-inp'), name=inp?.value.trim(); if(!name) return;
+  const a=ann(); if(!a.people[pid]) return;
+  a.people[pid].groups=[...(a.people[pid].groups||[]),name];
+  persist(a); openPersonDetail(pid);
+}}
+function rmGroup(pid,name){{
+  const a=ann(); if(!a.people[pid]) return;
+  a.people[pid].groups=(a.people[pid].groups||[]).filter(g=>g!==name);
+  persist(a); openPersonDetail(pid);
+}}
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 initNotes().then(()=>{{ effectiveTrips(); initMap(); renderSB(); }});
