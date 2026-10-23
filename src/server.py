@@ -15,9 +15,9 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse
 
-BASE       = Path(__file__).parent
-NOTES_FILE = BASE / "notes.json"
-DASHBOARD  = BASE / "output" / "travel_dashboard.html"
+ROOT       = Path(__file__).parent.parent   # travel-tracker/
+NOTES_FILE = ROOT / "notes.json"
+DASHBOARD  = ROOT / "output" / "travel_dashboard.html"
 PORT       = 8765
 
 
